@@ -6,8 +6,10 @@
     background-color:#DA4B07 ;
     border-radius: 4px;
     border: 0;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
     width: 103px;
-    height: 37px;
+    height: 35px;
     cursor: pointer;
 }
 .button:hover{

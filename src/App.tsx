@@ -1,12 +1,15 @@
-
 import './App.css'
-import {Button} from "./components/OrangeButton/Button.tsx";
+import Header from "./components/Header/Header.tsx";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
 
   return (
       <div>
-        <Button text={'BUT NOW'}/>
+          <Routes>
+              <Route path='/' element={<Header />} />
+              {/*<Route path='/*' element={<UnderConstruction />} />*/}
+          </Routes>
       </div>
 
   )
