@@ -1,8 +1,18 @@
 import s from './style.module.css'
 import {NavLink} from "react-router-dom";
 import {Button} from "../../../OrangeButton/Button.tsx";
+import {useState} from "react";
 
 const Navigation = () => {
+
+    const langs =["English","Русский","Des", "Djp", "tDy", "Dki",  "Dre" , "Dre" ];
+
+    const [stateChangeLanguage, setStateChangeLanguage] = useState(true)
+
+    const isViewLanguage = () => {
+        setStateChangeLanguage(!stateChangeLanguage)
+    }
+
     return (
         <>
             <div className={s.header}>
@@ -29,9 +39,21 @@ const Navigation = () => {
                         <NavLink to='*'>
                             <Button text={'BUY ONLINE'}/>
                         </NavLink>
-                        <div className={s.btn_select_language}>
+                        <div className={s.btn_select_language } onClick={isViewLanguage}>
                             <div className={s.language}>EN</div>
                             <div className={s.icon_spoiler_language}></div>
+                        </div>
+
+                        <div className={stateChangeLanguage ? s.change__language : s.change__language_view}>
+                            <ul className={s.countries__ul} onClick={() => {}}>
+                                { langs.map((l, index) => {
+                                    return (
+                                        <li key={index}>
+                                            {l}
+                                        </li>
+                                    )
+                                })}
+                            </ul>
                         </div>
                     </div>
                 </nav>
