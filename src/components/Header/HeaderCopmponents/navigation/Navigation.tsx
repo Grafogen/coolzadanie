@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import {Button} from "../../../OrangeButton/Button.tsx";
 import {MouseEvent, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
-import {LangInterface, MenuInterface} from "../../../../types/dataTypes.ts";
+import {Content, LangInterface, MenuInterface} from "../../../../types/dataTypes.ts";
 
 const Navigation = () => {
 
@@ -35,6 +35,8 @@ const Navigation = () => {
 
     const [language, setLanguage] = useState<string>(languagesData.data?.[0]?.alpha2code || 'EN')
 
+    type LanguageKeys = keyof Content;
+
     const chooseLang = (e: MouseEvent<HTMLLIElement, globalThis.MouseEvent>)=>{
     if (e.currentTarget.lang !== null) {
         isViewLanguage();
@@ -48,7 +50,9 @@ const Navigation = () => {
     }
 
     if (isLoading) return <div>Loading...</div>;
+
     if (error) return <div>An error occurred: {error.message}</div>;
+
     return (
         <>
             <div className={s.header}>
@@ -59,16 +63,16 @@ const Navigation = () => {
                     <div className={s.header__titles__list}>
                         <div className={s.container}>
                             <NavLink to='*'>
-                                <span className={s.header__title__item}>{isSuccess && data[0].content.en.title}</span></NavLink>
+                                <span className={s.header__title__item}>{isSuccess && data[0].content[language as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span
-                                className={s.header__title__item}>ATTRACTIONS & TOUR</span></NavLink>
+                                className={s.header__title__item}>{isSuccess && data[5].content[language as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span
-                                className={s.header__title__item}>GETTING YOUR PASS</span></NavLink>
-                            <NavLink to='*'><span className={s.header__title__item}>PLAN YOUR TRIP</span></NavLink>
+                                className={s.header__title__item}>{isSuccess && data[25].content[language as LanguageKeys]?.title}</span></NavLink>
+                            <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[32].content[language as LanguageKeys]?.title}</span></NavLink>
 
-                            <NavLink to='*'><span className={s.header__title__item}>CURRENT NEWS</span></NavLink>
+                            <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[38].content[language as LanguageKeys]?.title}</span></NavLink>
 
-                            <NavLink to='*'><span className={s.header__title__item}>FAQ</span></NavLink>
+                            <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[46].content[language as LanguageKeys]?.title}</span></NavLink>
                         </div>
                     </div>
                     <div className={s.buyAndChangeLanguage}>
