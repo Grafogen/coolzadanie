@@ -1,18 +1,54 @@
 import s from './style.module.css'
 import {NavLink} from "react-router-dom";
 import {Button} from "../../../OrangeButton/Button.tsx";
-import {useState} from "react";
+import {MouseEvent, useState} from "react";
+import {useQuery} from "@tanstack/react-query";
+import {LangInterface, MenuInterface} from "../../../../types/dataTypes.ts";
 
 const Navigation = () => {
 
-    const langs =["English","Русский","Des", "Djp", "tDy", "Dki",  "Dre" , "Dre" ];
+    const fetchMenuData = async (): Promise<MenuInterface[]> => {
+        const response = await fetch('https://api2.praguecoolpass.com/menu');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    };
 
+    const fetchActiveLanguages = async (): Promise<LangInterface[]> => {
+        const response = await fetch('https://api2.praguecoolpass.com/languages/active');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    };
+
+    const {data, error, isLoading, isSuccess} = useQuery({
+        queryKey: ['menuData'],
+        queryFn: fetchMenuData
+    });
+
+    const languagesData = useQuery({
+        queryKey: ['activeLanguage'],
+        queryFn: fetchActiveLanguages
+    });
+
+    const [language, setLanguage] = useState<string>(languagesData.data?.[0]?.alpha2code || 'EN')
+
+    const chooseLang = (e: MouseEvent<HTMLLIElement, globalThis.MouseEvent>)=>{
+    if (e.currentTarget.lang !== null) {
+        isViewLanguage();
+        setLanguage(e.currentTarget.lang);
+    }
+}
     const [stateChangeLanguage, setStateChangeLanguage] = useState(true)
 
     const isViewLanguage = () => {
         setStateChangeLanguage(!stateChangeLanguage)
     }
 
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>An error occurred: {error.message}</div>;
     return (
         <>
             <div className={s.header}>
@@ -23,7 +59,7 @@ const Navigation = () => {
                     <div className={s.header__titles__list}>
                         <div className={s.container}>
                             <NavLink to='*'>
-                                <span className={s.header__title__item}>COOLPASS/CARD</span></NavLink>
+                                <span className={s.header__title__item}>{isSuccess && data[0].content.en.title}</span></NavLink>
                             <NavLink to='*'><span
                                 className={s.header__title__item}>ATTRACTIONS & TOUR</span></NavLink>
                             <NavLink to='*'><span
@@ -40,16 +76,16 @@ const Navigation = () => {
                             <Button text={'BUY ONLINE'}/>
                         </NavLink>
                         <div className={s.btn_select_language } onClick={isViewLanguage}>
-                            <div className={s.language}>EN</div>
+                            <div className={s.language}>{language}</div>
                             <div className={s.icon_spoiler_language}></div>
                         </div>
 
                         <div className={stateChangeLanguage ? s.change__language : s.change__language_view}>
-                            <ul className={s.countries__ul} onClick={() => {}}>
-                                { langs.map((l, index) => {
+                            <ul className={s.countries__ul} >
+                                {languagesData.data?.map((l, index) => {
                                     return (
-                                        <li key={index}>
-                                            {l}
+                                        <li key={index} onClick={(e)=>{chooseLang(e)}} id={`language-${l.alpha2code}`} lang={l.alpha2code} >
+                                            {l.title}
                                         </li>
                                     )
                                 })}
