@@ -137,3 +137,311 @@
 .countries__ul li:not(:last-child) {
     padding-bottom: 5px;
 }
+
+
+@media (max-width:768px ) {
+
+    header {
+        width: 768px;
+        min-width: 768px;
+        height: 600px;
+        color: #fff;
+    }
+
+    .header {
+        height: 56px;
+        width: 768px;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+
+    }
+
+    .header__container {
+        width: auto;
+    }
+
+    .photoBy {
+        display: none;
+    }
+
+
+    .navBar {
+        width: 768px;
+    }
+
+    .isview {
+        transition: top 0.3s;
+        top: -63px !important;
+    }
+
+    .headerColor {
+        background: #444959;
+        opacity: 1;
+        z-index: 300;
+
+    }
+
+    .navBar {
+        width: 96%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navBar__burger {
+        display: flex;
+        align-items: center;
+    }
+
+    .burger__menu {
+        position: relative;
+        cursor: pointer;
+        display: block;
+        width: 27px !important;
+        height: 18px;
+        margin-right: 15px;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+    }
+
+    .burger__menu span {
+        position: absolute;
+        width: 100%;
+        background-color: #da4b07;
+        height: 2px;
+        left: 0;
+        border-radius: 2px;
+        transition: .25s ease-in-out;
+    }
+
+    .burger__menu span:nth-child(2),
+    .burger__menu span:nth-child(3) {
+        top: 8px;
+    }
+
+
+    .burger__menu span:nth-child(4) {
+        top: 16px;
+    }
+
+    .header__titles__list {
+        display: none;
+    }
+
+
+    .burger__menu .anim span:nth-child(1),
+    .burger__menu .anim span:nth-child(4) {
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .burger__menu .anim span:nth-child(2) {
+        transform: rotateZ(45deg);
+
+    }
+
+    .burger__menu .anim span:nth-child(3) {
+        transform: rotateZ(-45deg);
+
+    }
+
+
+
+    .header_mobile_version.hidden {
+        padding: 0;
+        height: 0;
+        transition: height .3s ease-in, padding .3s ease-in;
+    }
+
+
+    .header_mobile_version {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex: 0 0 100%;
+        flex-direction: column;
+        order: 3;
+        height: 375px;
+        width: 100%;
+        background: #727580;
+        padding-top: 42px;
+        left: 0;
+        right: 0;
+        margin: 0;
+        top: 100%;
+        overflow: hidden;
+        z-index: 1000;
+        transition: height .3s ease-in-out, padding .3s ease-in-out;
+    }
+
+
+    .header_mobile_version a {
+        color: #fff;
+        width: 304px;
+        margin: 0 0 30px;
+        padding-left: 30px;
+    }
+
+    .header_mobile_version a .header__title__item {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+
+    .header_mobile_version a .buyCoolPass {
+        width: 258px;
+        margin-right: 0;
+    }
+
+    .viewMobile .buyCoolPass {
+        display: none;
+    }
+
+    .btn_select_language {
+        display: block;
+    }
+
+    .btn_select_language.viewMobile {
+        display: none;
+    }
+
+
+    .header__content {
+        bottom: 100px;
+        left: 10px;
+        z-index: 200;
+    }
+
+
+    .header__titleBlock {
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .under_title {
+        height: auto;
+    }
+
+    .under_title span {
+        padding: 0 8px;
+        margin: 8px 0;
+    }
+
+    .buyCoolPass {
+        margin-right: 0;
+    }
+}
+
+
+@media (max-width: 426px) {
+    header {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+    }
+
+    .header {
+        height: 56px;
+        width: 100%;
+    }
+
+    .header__carousel {
+        min-height: 240px;
+    }
+
+    .coolPass__background {
+        min-height: 240px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+    }
+
+    .header__title {
+        font-size: 26px;
+        line-height: 34px;
+        margin: 10px 8px 6px 0;
+    }
+
+    .header__subtitle {
+        font-size: 16px;
+        line-height: 21px;
+        margin: 0;
+    }
+
+    .header__content {
+        bottom: 30px;
+        margin: 0;
+    }
+
+    .photoBy {
+        display: block;
+        font-size: 9px;
+        bottom: 0;
+        right: 8px;
+    }
+
+
+
+    .header__carousel .swiper-pagination-clickable .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 14px;
+    }
+
+    .mobile__search {
+        display: block;
+    }
+
+    .form__container {
+        flex-direction: column;
+        margin: 20px 0 0 0;
+        width: auto;
+        padding: 0 8px;
+    }
+
+    .btn__letsgo {
+        width: 100%;
+        margin: 12px 0 0 0;
+    }
+
+    .autocomplete__results {
+        width: calc(100% - 18px);
+    }
+
+    .wrap_search {
+        width: 100%;
+    }
+
+    .wrap_search input {
+        min-width: 100%;
+        width: 100%;
+        border: 1px solid #dbdbdb;
+    }
+
+
+    .swiper__for__mobile {
+        display: block;
+    }
+
+    .swiper__for__pc {
+        display: none;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .buyCoolPass {
+        padding: 0 10px;
+    }
+}
