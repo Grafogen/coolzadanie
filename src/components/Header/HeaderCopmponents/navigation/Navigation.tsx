@@ -15,6 +15,19 @@ const Navigation = () => {
         const savedLanguage = localStorage.getItem('selectedLanguage');
         return savedLanguage ? savedLanguage : (languagesData.data?.[0]?.alpha2code || 'EN');
     });
+    const handleResize = () => {
+        if (window.innerWidth > 768) {
+            setViewMob(false);
+        }
+    };
+
+    useEffect(() => {
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const fetchMenuData = async (): Promise<MenuInterface[]> => {
         const response = await fetch('https://api2.praguecoolpass.com/menu');
@@ -48,12 +61,12 @@ const Navigation = () => {
 
     type LanguageKeys = keyof Content;
 
-    const chooseLang = (e: MouseEvent<HTMLLIElement, globalThis.MouseEvent>)=>{
-    if (e.currentTarget.lang !== null) {
-        isViewLanguage();
-        setLanguage(e.currentTarget.lang);
+    const chooseLang = (e: MouseEvent<HTMLLIElement, globalThis.MouseEvent>) => {
+        if (e.currentTarget.lang !== null) {
+            isViewLanguage();
+            setLanguage(e.currentTarget.lang);
+        }
     }
-}
 
     const isViewLanguage = () => {
         setStateChangeLanguage(!stateChangeLanguage)
@@ -62,11 +75,15 @@ const Navigation = () => {
     if (isLoading) return <div>Loading...</div>;
 
     if (error) return <div>An error occurred: {error.message}</div>;
+
     const viewMenu = () => {
-        setViewMob(!viewMob);
+        setViewMob(!viewMob)
         setBurgerAnimation(!burgerAnimation)
         setHeaderColor(!headerColor)
     }
+
+    const isMobile = window.innerWidth <= 768;
+
     return (
         isSuccess &&
         <>
@@ -106,11 +123,10 @@ const Navigation = () => {
                         </div>
                     </div>
                     <div className={s.buyAndChangeLanguage}>
-
-                        <NavLink to='*'>
+                        <NavLink to='*' className={`${viewMob ? s.butn: s.butn__active}`}>
                             <Button text={'BUY ONLINE'}/>
                         </NavLink>
-                        <div className={s.btn_select_language} onClick={isViewLanguage}>
+                        <div className={`${!viewMob ? s.btn_select_language:''}`} onClick={isViewLanguage}>
                             <div className={s.language}>{language}</div>
                             <div className={s.icon_spoiler_language}></div>
                         </div>
@@ -129,19 +145,25 @@ const Navigation = () => {
                             </ul>
                         </div>
                     </div>
-
-                    <ul className={`${s.header_mobile_version} ${viewMob ? '' : `hidden`}`}>
-                        <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[0].content[language as LanguageKeys]?.title}</span></NavLink>
-                        <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[5].content[language as LanguageKeys]?.title}</span></NavLink>
-                        <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[25].content[language as LanguageKeys]?.title}</span></NavLink>
-                        <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[32].content[language as LanguageKeys]?.title}</span></NavLink>
-                        <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[38].content[language as LanguageKeys]?.title}</span></NavLink>
-                        <NavLink to='*'><span className={s.header__title__item}>{isSuccess && data[46].content[language as LanguageKeys]?.title}</span></NavLink>
-                        <NavLink to='*'>
-                            <Button text={'BUY ONLINE'}/>
-                        </NavLink>
-                    </ul>
-
+                    {isMobile && viewMob &&  (
+                        <ul className={s.header_mobile_version} >
+                            <NavLink to='*'><span
+                                className={s.header__title__item}>{isSuccess && data[0].content[language as LanguageKeys]?.title}</span></NavLink>
+                            <NavLink to='*'><span
+                                className={s.header__title__item}>{isSuccess && data[5].content[language as LanguageKeys]?.title}</span></NavLink>
+                            <NavLink to='*'><span
+                                className={s.header__title__item}>{isSuccess && data[25].content[language as LanguageKeys]?.title}</span></NavLink>
+                            <NavLink to='*'><span
+                                className={s.header__title__item}>{isSuccess && data[32].content[language as LanguageKeys]?.title}</span></NavLink>
+                            <NavLink to='*'><span
+                                className={s.header__title__item}>{isSuccess && data[38].content[language as LanguageKeys]?.title}</span></NavLink>
+                            <NavLink to='*'><span
+                                className={s.header__title__item}>{isSuccess && data[46].content[language as LanguageKeys]?.title}</span></NavLink>
+                            <NavLink to='*'>
+                                <Button text={'BUY ONLINE'}/>
+                            </NavLink>
+                        </ul>
+                    )}
                 </nav>
             </div>
         </>

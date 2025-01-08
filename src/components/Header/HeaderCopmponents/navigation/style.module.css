@@ -31,6 +31,7 @@
     height: 20px;
     margin: 3px 34px 0 50px;
 }
+
 .header__title__item {
     color: #fff;
     font-weight: 400;
@@ -47,12 +48,16 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .header__titles__list a {
     text-decoration: none;
 }
+
 .buyAndChangeLanguage {
     display: flex;
-    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
 }
 
 .btn_select_language {
@@ -89,7 +94,7 @@
     top: 14px;
     color: white;
     right: 15.5px;
-    background-image: url(https://praguecoolpass.com/img/down-arrow.238dbed4.svg) ;
+    background-image: url(https://praguecoolpass.com/img/down-arrow.238dbed4.svg);
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 90%;
@@ -117,7 +122,7 @@
 .countries__ul {
     height: 100%;
     list-style-type: none;
-    padding:0 0 9px 12px;
+    padding: 0 0 9px 12px;
     margin: 5px 0;
 }
 
@@ -139,7 +144,7 @@
 }
 
 
-@media (max-width:768px ) {
+@media (max-width: 768px ) {
 
     header {
         width: 768px;
@@ -168,8 +173,10 @@
         display: none;
     }
 
-
     .navBar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         width: 768px;
     }
 
@@ -190,6 +197,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .header__Logo {
+        margin-right: auto;
     }
 
     .navBar__burger {
@@ -231,24 +242,19 @@
     .header__titles__list {
         display: none;
     }
-
-
     .burger__menu .anim span:nth-child(1),
     .burger__menu .anim span:nth-child(4) {
         opacity: 0;
         transition: opacity 0.2s;
     }
-
     .burger__menu .anim span:nth-child(2) {
         transform: rotateZ(45deg);
 
     }
-
     .burger__menu .anim span:nth-child(3) {
         transform: rotateZ(-45deg);
 
     }
-
 
 
     .header_mobile_version.hidden {
@@ -256,7 +262,6 @@
         height: 0;
         transition: height .3s ease-in, padding .3s ease-in;
     }
-
 
     .header_mobile_version {
         display: flex;
@@ -277,7 +282,6 @@
         z-index: 1000;
         transition: height .3s ease-in-out, padding .3s ease-in-out;
     }
-
 
     .header_mobile_version a {
         color: #fff;
@@ -303,14 +307,20 @@
     }
 
     .btn_select_language {
-        display: block;
-    }
-
-    .btn_select_language.viewMobile {
         display: none;
     }
+    .buyAndChangeLanguage {
+        justify-content: flex-end;
+    }
+    .butn{
+        display: none;
+    }
+    .butn__active{
+        display: block;
+        margin-left: auto;
 
-
+        margin-right: 20px;
+    }
     .header__content {
         bottom: 100px;
         left: 10px;
@@ -388,13 +398,12 @@
     }
 
 
-
     .header__carousel .swiper-pagination-clickable .swiper-pagination-bullet {
         width: 8px;
         height: 8px;
     }
 
-    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-horizontal > .swiper-pagination-bullets,
     .swiper-pagination-bullets.swiper-pagination-horizontal {
         bottom: 14px;
     }
@@ -410,25 +419,6 @@
         padding: 0 8px;
     }
 
-    .btn__letsgo {
-        width: 100%;
-        margin: 12px 0 0 0;
-    }
-
-    .autocomplete__results {
-        width: calc(100% - 18px);
-    }
-
-    .wrap_search {
-        width: 100%;
-    }
-
-    .wrap_search input {
-        min-width: 100%;
-        width: 100%;
-        border: 1px solid #dbdbdb;
-    }
-
 
     .swiper__for__mobile {
         display: block;
@@ -438,10 +428,4 @@
         display: none;
     }
 
-}
-
-@media (max-width: 320px) {
-    .buyCoolPass {
-        padding: 0 10px;
-    }
 }

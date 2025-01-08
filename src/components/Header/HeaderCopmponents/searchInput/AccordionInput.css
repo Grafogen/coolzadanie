@@ -1,0 +1,36 @@
+.accordion-input {
+    width: 300px;
+    margin: 120px auto;
+
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.accordion {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.accordion-button {
+    background: #f1f1f1;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+}
+
+.accordion-content {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+
+.accordion-item {
+    padding: 5px 0;
+}
