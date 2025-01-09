@@ -11,7 +11,13 @@ const SearchInput = () => {
     const accordionRef = useRef<HTMLDivElement | null>(null);
 
     type LanguageKeys = keyof Content;
-
+    const capitalizeWords = (sentence: string) => {
+        if (!sentence) return sentence;
+        return sentence
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+    };
     const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
 
         const value = e.currentTarget.value;
@@ -49,6 +55,11 @@ const SearchInput = () => {
         }
     };
 
+    const handleSelectPlace = (place: string) => {
+        setInputValue(place);
+        setIsOpen(false);
+    };
+
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
         return () => {
@@ -60,9 +71,10 @@ const SearchInput = () => {
         <div className="accordion-input" ref={accordionRef}>
             <input
                 type="text"
+                className='input'
                 value={inputValue}
                 onChange={(e)=>handleChange(e)}
-                placeholder="Введите название места..."
+                placeholder="Search"
             />
             {isOpen && (
                 <div className="accordion">
@@ -72,13 +84,13 @@ const SearchInput = () => {
                     {isOpen && (
                         <div className="accordion-content">
                             {apiResults.length > 0 && (
-                                <div className="api-results">
+                                <ul className="api_results">
                                     {apiResults.map((result:InputInterface, index) => (
-                                        <div key={index} className="accordion-item">
-                                            {result.content[lang as LanguageKeys].title}
-                                        </div>
+                                        <li key={index} className="accordion-item"  onClick={() => handleSelectPlace(result.content[lang as LanguageKeys].title)}>
+                                            {capitalizeWords(result.content[lang as LanguageKeys].title)}
+                                        </li>
                                     ))}
-                                </div>
+                                </ul>
                             )}
                         </div>
                     )}

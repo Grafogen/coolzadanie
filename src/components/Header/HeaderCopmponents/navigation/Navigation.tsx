@@ -123,30 +123,34 @@ const Navigation = () => {
                         </div>
                     </div>
                     <div className={s.buyAndChangeLanguage}>
-                        <NavLink to='*' className={`${viewMob ? s.butn: s.butn__active}`}>
+                        <NavLink to='*' className={`${viewMob ? s.butn : s.butn__active}`}>
                             <Button text={'BUY ONLINE'}/>
                         </NavLink>
-                        <div className={`${!viewMob ? s.btn_select_language_hide:s.btn_select_language}`} onClick={isViewLanguage}>
-                            <div className={s.language}>{language}</div>
-                            <div className={s.icon_spoiler_language}></div>
-                        </div>
+                        <div className={s.lang_container}>
+                            <div
+                                className={`${s.btn_select_language} + ${!viewMob  ? s.btn_select_language_hide : s.btn_select_language}`}
+                                onClick={isViewLanguage}>
+                                <div className={s.language}>{language}</div>
+                                <div className={s.icon_spoiler_language}></div>
+                            </div>
 
-                        <div className={stateChangeLanguage ? s.change__language : s.change__language_view}>
-                            <ul className={s.countries__ul}>
-                                {languagesData.data?.map((l, index) => {
-                                    return (
-                                        <li key={index} onClick={(e) => {
-                                            chooseLang(e)
-                                        }} id={`language-${l.alpha2code}`} lang={l.alpha2code}>
-                                            {l.title}
-                                        </li>
-                                    )
-                                })}
-                            </ul>
+                            <div className={stateChangeLanguage ? s.change__language : s.change__language_view}>
+                                <ul className={s.countries__ul}>
+                                    {languagesData.data?.map((l, index) => {
+                                        return (
+                                            <li key={index} onClick={(e) => {
+                                                chooseLang(e)
+                                            }} id={`language-${l.alpha2code}`} lang={l.alpha2code}>
+                                                {l.title}
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    {isMobile && viewMob &&  (
-                        <ul className={s.header_mobile_version} >
+                    {isMobile && viewMob && (
+                        <ul className={s.header_mobile_version}>
                             <NavLink to='*'><span
                                 className={s.header__title__item}>{isSuccess && data[0].content[language as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span

@@ -1,10 +1,11 @@
 .accordion-input {
-    width: 300px;
+    width: 270px;
     margin: 120px auto;
+    height: 37px;
 
 }
 
-input {
+.input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -28,16 +29,27 @@ input {
 
 .accordion-content {
     border-top: 1px solid #ccc;
-    padding: 10px;
     max-height: 220px;
     overflow-y: auto;
     transition: max-height 0.3s ease;
 }
 
 .accordion-item {
-    padding: 5px 0;
-    color: black;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #252527;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 23px;
+}
+.accordion-item:hover {
+    background-color: #f0f0f0;
 }
 
 .api_results{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
