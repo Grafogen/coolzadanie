@@ -29,8 +29,15 @@ input {
 .accordion-content {
     border-top: 1px solid #ccc;
     padding: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
 }
 
 .accordion-item {
     padding: 5px 0;
+    color: black;
+}
+
+.api_results{
 }

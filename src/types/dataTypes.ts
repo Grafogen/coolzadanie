@@ -47,3 +47,4 @@ export interface LangInterface {
     alpha2code: string;
     isActive: boolean;
 }
+

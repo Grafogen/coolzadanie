@@ -1,38 +1,41 @@
 import './AccordionInput.css';
-import {useState} from "react"; // Импортируйте CSS для стилей
-
-const places = [
-    "Пражский Град",
-    "Карлов мост",
-    "Староместская площадь",
-    "Национальный музей",
-    "Вышеград",
-    "Зоологический сад Праги",
-    "Петршин холм"
-];
+import {ChangeEvent, useEffect, useRef, useState} from "react";
+import {InputInterface, Content} from "../../../../types/inputTypes.ts";
 
 const SearchInput = () => {
     const [inputValue, setInputValue] = useState('');
-    const [filteredPlaces, setFilteredPlaces] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [apiResults, setApiResults] = useState([]);
+    const [lang, setLang] = useState(localStorage.getItem('selectedLanguage'));
 
-    const handleChange = (e:unknown) => {
- 
-        // @ts-ignore
-        const value = e.target.value;
+    const accordionRef = useRef<HTMLDivElement | null>(null);
+
+    type LanguageKeys = keyof Content;
+
+    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+
+        const value = e.currentTarget.value;
+        const lang=localStorage.getItem('selectedLanguage');
+        setLang(lang)
         setInputValue(value);
 
         if (value) {
-            const filtered = places.filter(place =>
-                place.toLowerCase().includes(value.toLowerCase())
-            );
-      
-            // @ts-ignore
-            setFilteredPlaces(filtered);
             setIsOpen(true);
+            fetchPlaces(value, lang)
         } else {
-            setFilteredPlaces([]);
+            setApiResults([]);
             setIsOpen(false);
+        }
+    };
+
+    const fetchPlaces = async (query: string, lang:string | null) => {
+        const response = await fetch(`https://api2.praguecoolpass.com/search?lang=${lang}&q=${query}`);
+
+        if (response.ok) {
+            const data = await response.json();
+            setApiResults(data);
+        } else {
+            console.error('Ошибка запроса:', response.status);
         }
     };
 
@@ -40,12 +43,25 @@ const SearchInput = () => {
         setIsOpen(!isOpen);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+        if (accordionRef.current && !accordionRef.current.contains(event.target as Node)) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="accordion-input">
+        <div className="accordion-input" ref={accordionRef}>
             <input
                 type="text"
                 value={inputValue}
-                onChange={handleChange}
+                onChange={(e)=>handleChange(e)}
                 placeholder="Введите название места..."
             />
             {isOpen && (
@@ -55,14 +71,14 @@ const SearchInput = () => {
                     </button>
                     {isOpen && (
                         <div className="accordion-content">
-                            {filteredPlaces.length > 0 ? (
-                                filteredPlaces.map((place, index) => (
-                                    <div key={index} className="accordion-item">
-                                        {place}
-                                    </div>
-                                ))
-                            ) : (
-                                <div className="accordion-item">Нет вариантов</div>
+                            {apiResults.length > 0 && (
+                                <div className="api-results">
+                                    {apiResults.map((result:InputInterface, index) => (
+                                        <div key={index} className="accordion-item">
+                                            {result.content[lang as LanguageKeys].title}
+                                        </div>
+                                    ))}
+                                </div>
                             )}
                         </div>
                     )}
