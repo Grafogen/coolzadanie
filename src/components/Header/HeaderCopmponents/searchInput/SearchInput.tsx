@@ -7,9 +7,9 @@ const SearchInput = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [apiResults, setApiResults] = useState([]);
     const [lang, setLang] = useState(localStorage.getItem('selectedLanguage'));
+    const [loading,setLoading] = useState(false);
 
     const accordionRef = useRef<HTMLDivElement | null>(null);
-
     type LanguageKeys = keyof Content;
     const capitalizeWords = (sentence: string) => {
         if (!sentence) return sentence;
@@ -18,10 +18,12 @@ const SearchInput = () => {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
             .join(' ');
     };
-    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setLoading(true)
 
         const value = e.currentTarget.value;
-        const lang=localStorage.getItem('selectedLanguage');
+        const lang = localStorage.getItem('selectedLanguage');
         setLang(lang)
         setInputValue(value);
 
@@ -34,19 +36,14 @@ const SearchInput = () => {
         }
     };
 
-    const fetchPlaces = async (query: string, lang:string | null) => {
+    const fetchPlaces = async (query: string, lang: string | null) => {
         const response = await fetch(`https://api2.praguecoolpass.com/search?lang=${lang}&q=${query}`);
-
         if (response.ok) {
             const data = await response.json();
             setApiResults(data);
         } else {
             console.error('Ошибка запроса:', response.status);
         }
-    };
-
-    const toggleAccordion = () => {
-        setIsOpen(!isOpen);
     };
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -59,6 +56,10 @@ const SearchInput = () => {
         setInputValue(place);
         setIsOpen(false);
     };
+    const handleIconClear=()=>{
+        setInputValue('')
+        setIsOpen(false)
+    }
 
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
@@ -69,24 +70,29 @@ const SearchInput = () => {
 
     return (
         <div className="accordion-input" ref={accordionRef}>
-            <input
+            <div className="wrap_search">
+                <input
                 type="text"
                 className='input'
                 value={inputValue}
-                onChange={(e)=>handleChange(e)}
+                onChange={(e) => handleChange(e)}
                 placeholder="Search"
             />
+                <div className="icon_search" onClick={handleIconClear}
+                     style={{background: ` url(https://praguecoolpass.com/img/search.a842451d.svg)`}}></div>
+            </div>
+
+
             {isOpen && (
                 <div className="accordion">
-                    <button className="accordion-button" onClick={toggleAccordion}>
-                        Варианты мест
-                    </button>
+
                     {isOpen && (
                         <div className="accordion-content">
                             {apiResults.length > 0 && (
                                 <ul className="api_results">
-                                    {apiResults.map((result:InputInterface, index) => (
-                                        <li key={index} className="accordion-item"  onClick={() => handleSelectPlace(result.content[lang as LanguageKeys].title)}>
+                                    {apiResults.map((result: InputInterface, index) => (
+                                        <li key={index} className="accordion-item"
+                                            onClick={() => handleSelectPlace(result.content[lang as LanguageKeys].title)}>
                                             {capitalizeWords(result.content[lang as LanguageKeys].title)}
                                         </li>
                                     ))}
