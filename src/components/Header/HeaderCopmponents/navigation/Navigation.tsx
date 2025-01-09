@@ -126,7 +126,7 @@ const Navigation = () => {
                         <NavLink to='*' className={`${viewMob ? s.butn: s.butn__active}`}>
                             <Button text={'BUY ONLINE'}/>
                         </NavLink>
-                        <div className={`${!viewMob ? s.btn_select_language:''}`} onClick={isViewLanguage}>
+                        <div className={`${!viewMob ? s.btn_select_language_hide:s.btn_select_language}`} onClick={isViewLanguage}>
                             <div className={s.language}>{language}</div>
                             <div className={s.icon_spoiler_language}></div>
                         </div>

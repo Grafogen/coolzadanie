@@ -16,8 +16,9 @@ const SearchInput = () => {
     const [filteredPlaces, setFilteredPlaces] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleChange = (e:any) => {
+    const handleChange = (e:unknown) => {
  
+        // @ts-ignore
         const value = e.target.value;
         setInputValue(value);
 
@@ -26,6 +27,7 @@ const SearchInput = () => {
                 place.toLowerCase().includes(value.toLowerCase())
             );
       
+            // @ts-ignore
             setFilteredPlaces(filtered);
             setIsOpen(true);
         } else {

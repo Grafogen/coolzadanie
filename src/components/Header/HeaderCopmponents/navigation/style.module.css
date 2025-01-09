@@ -54,10 +54,9 @@
 }
 
 .buyAndChangeLanguage {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     padding-right: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 .btn_select_language {
@@ -153,17 +152,16 @@
         color: #fff;
     }
 
-    .header {
-        height: 56px;
-        width: 768px;
-        display: flex;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-
-    }
+    /*.header {*/
+    /*    height: 56px;*/
+    /*    width: 768px;*/
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*    position: fixed;*/
+    /*    top: 0;*/
+    /*    left: 0;*/
+    /*    z-index: 1000;*/
+    /*}*/
 
     .header__container {
         width: auto;
@@ -195,12 +193,12 @@
     .navBar {
         width: 96%;
         display: flex;
-        justify-content: space-between;
+         justify-content: space-between;
         align-items: center;
     }
 
     .header__Logo {
-        margin-right: auto;
+       margin-right: auto;
     }
 
     .navBar__burger {
@@ -233,8 +231,6 @@
     .burger__menu span:nth-child(3) {
         top: 8px;
     }
-
-
     .burger__menu span:nth-child(4) {
         top: 16px;
     }
@@ -254,13 +250,6 @@
     .burger__menu .anim span:nth-child(3) {
         transform: rotateZ(-45deg);
 
-    }
-
-
-    .header_mobile_version.hidden {
-        padding: 0;
-        height: 0;
-        transition: height .3s ease-in, padding .3s ease-in;
     }
 
     .header_mobile_version {
@@ -306,11 +295,12 @@
         display: none;
     }
 
-    .btn_select_language {
+    .btn_select_language_hide {
         display: none;
     }
     .buyAndChangeLanguage {
         justify-content: flex-end;
+        padding-right: 0;
     }
     .butn{
         display: none;
@@ -319,7 +309,6 @@
         display: block;
         margin-left: auto;
 
-        margin-right: 20px;
     }
     .header__content {
         bottom: 100px;
