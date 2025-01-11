@@ -10,10 +10,13 @@ import S from './style.module.css'
 import "swiper/css";
 // @ts-ignore
 import "swiper/css/pagination";
+import {useContext } from "react";
+import {StateContext} from "../../../../App.tsx";
 
 export const ScrollSection = () => {
 
-    const lang = localStorage.getItem('selectedLanguage')
+    // @ts-ignore
+    const {globalLanguage}=useContext(StateContext);
 
     const fetchPages = async ():Promise<ScrollSectionInterface> => {
         const response = await fetch(`https://api2.praguecoolpass.com/pages/5fd771cc072e5479bded0f2b`);
@@ -23,10 +26,11 @@ export const ScrollSection = () => {
         return response.json()
     };
     const content = useQuery({
-        queryKey: ['page1Data'],
+        queryKey: ['pageData'],
         queryFn: fetchPages
     });
     type LanguageKeys = keyof Content;
+
 
     return (
         <div >
@@ -84,8 +88,8 @@ export const ScrollSection = () => {
                     <div className={S.header__container}>
                         <div className={S.header__content}>
                             <div className={S.header__titleBlock}>
-                                <h1 className={S.header__title}>{content.data.content[lang as LanguageKeys].title}</h1>
-                                <h2 className={S.header__subtitle}>{content.data.content[lang as LanguageKeys].subtitle}</h2>
+                                <h1 className={S.header__title} dangerouslySetInnerHTML={{ __html: `${content.data.content[globalLanguage as LanguageKeys].title}` }}></h1>
+                                <h2 className={S.header__subtitle}>{content.data.content[globalLanguage as LanguageKeys].subtitle}</h2>
                             </div>
                                 <SearchInput />
                         </div>

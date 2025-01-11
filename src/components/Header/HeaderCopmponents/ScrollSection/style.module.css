@@ -22,9 +22,11 @@
 .header__content {
     position: absolute;
     z-index: 100;
-    bottom: 81px;
+    bottom: 131px;
     left: 70px;
-
+    height:350px ;
+    display: flex;
+    flex-direction: column;
 }
 
 .photoBy {
@@ -109,3 +111,14 @@
     display: none;
 }
 
+.swiper_custom{
+        width: 12px;
+        height: 12px;
+        text-align: center;
+        line-height: 20px;
+        opacity: 1;
+        background: rgb(219, 208, 204);
+}
+.swiper_custom:active {
+    background: #d25014;
+}

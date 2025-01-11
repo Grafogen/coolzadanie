@@ -1,8 +1,8 @@
 .accordion-input {
     width: 270px;
-    margin: 120px auto;
+    margin-top: 120px ;
     height: 37px;
-justify-content: flex-start;
+    padding-left: 30px;
 }
 
 .input {
@@ -11,6 +11,7 @@ justify-content: flex-start;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 5px;
+    margin-right: 21px;
 }
 
 .accordion {
@@ -43,6 +44,7 @@ justify-content: flex-start;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     line-height: 23px;
+    z-index: 1420;
 }
 .accordion-item:hover {
     background-color: #f0f0f0;
@@ -52,6 +54,8 @@ justify-content: flex-start;
     list-style-type: none;
     padding: 0;
     margin: 0;
+    z-index: 1400;
+    background-color: #ffffff;
 }
 
 .icon_search {
@@ -69,6 +73,8 @@ justify-content: flex-start;
     height: 100%;
     min-width: 270px;
     position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .wrap_search input {

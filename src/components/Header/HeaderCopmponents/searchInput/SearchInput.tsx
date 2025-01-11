@@ -1,12 +1,17 @@
 import './AccordionInput.css';
-import {ChangeEvent, useEffect, useRef, useState} from "react";
+import {ChangeEvent, useContext, useEffect, useRef, useState} from "react";
 import {InputInterface, Content} from "../../../../types/inputTypes.ts";
+import {Button} from "../../../OrangeButton/Button.tsx";
+import {StateContext} from "../../../../App.tsx";
 
 const SearchInput = () => {
     const [inputValue, setInputValue] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [apiResults, setApiResults] = useState([]);
     const [lang, setLang] = useState(localStorage.getItem('selectedLanguage'));
+
+    // @ts-ignore
+    const {translation, globalLanguage}=useContext(StateContext);
 
 
     const accordionRef = useRef<HTMLDivElement | null>(null);
@@ -74,10 +79,11 @@ const SearchInput = () => {
                 className='input'
                 value={inputValue}
                 onChange={(e) => handleChange(e)}
-                placeholder="Search"
+                placeholder={`${translation[globalLanguage].SEARCH}`}
             />
                 <div className="icon_search" onClick={handleIconClear}
                      style={{background: ` url(https://praguecoolpass.com/img/search.a842451d.svg)`}}></div>
+                <Button text={translation[globalLanguage]['APP_LETS_GO']}/>
             </div>
 
 

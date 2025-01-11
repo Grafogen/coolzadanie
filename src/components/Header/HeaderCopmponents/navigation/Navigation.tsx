@@ -1,11 +1,15 @@
 import s from './style.module.css'
 import {NavLink} from "react-router-dom";
 import {Button} from "../../../OrangeButton/Button.tsx";
-import {MouseEvent, useEffect, useState} from "react";
+import {MouseEvent, useContext, useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {Content, LangInterface, MenuInterface} from "../../../../types/dataTypes.ts";
+import {StateContext} from "../../../../App.tsx";
 
 const Navigation = () => {
+
+    // @ts-ignore
+    const {globalLanguage, setGlobalLanguage, translation}=useContext(StateContext);
 
     const [headerColor, setHeaderColor] = useState(false)
     const [burgerAnimation, setBurgerAnimation] = useState(false)
@@ -57,6 +61,7 @@ const Navigation = () => {
 
     useEffect(() => {
         localStorage.setItem('selectedLanguage', language);
+        setGlobalLanguage(language);
     }, [language]);
 
     type LanguageKeys = keyof Content;
@@ -109,22 +114,22 @@ const Navigation = () => {
                         <div className={s.container}>
                             <NavLink to='*'>
                                 <span
-                                    className={s.header__title__item}>{isSuccess && data[0].content[language as LanguageKeys]?.title || ''}</span></NavLink>
+                                    className={s.header__title__item}>{isSuccess && data[0].content[globalLanguage as LanguageKeys]?.title || ''}</span></NavLink>
                             <NavLink to='*'><span
-                                className={s.header__title__item}>{isSuccess && data[5].content[language as LanguageKeys]?.title}</span></NavLink>
+                                className={s.header__title__item}>{isSuccess && data[5].content[globalLanguage as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span
-                                className={s.header__title__item}>{isSuccess && data[25].content[language as LanguageKeys]?.title}</span></NavLink>
+                                className={s.header__title__item}>{isSuccess && data[25].content[globalLanguage as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span
-                                className={s.header__title__item}>{isSuccess && data[32].content[language as LanguageKeys]?.title}</span></NavLink>
+                                className={s.header__title__item}>{isSuccess && data[32].content[globalLanguage as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span
-                                className={s.header__title__item}>{isSuccess && data[38].content[language as LanguageKeys]?.title}</span></NavLink>
+                                className={s.header__title__item}>{isSuccess && data[38].content[globalLanguage as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span
-                                className={s.header__title__item}>{isSuccess && data[46].content[language as LanguageKeys]?.title}</span></NavLink>
+                                className={s.header__title__item}>{isSuccess && data[46].content[globalLanguage as LanguageKeys]?.title}</span></NavLink>
                         </div>
                     </div>
                     <div className={s.buyAndChangeLanguage}>
                         <NavLink to='*' className={`${viewMob ? s.butn : s.butn__active}`}>
-                            <Button text={'BUY ONLINE'}/>
+                            <Button text={translation[globalLanguage]['BUY_NOW']}/>
                         </NavLink>
                         <div className={s.lang_container}>
                             <div
