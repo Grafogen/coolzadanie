@@ -1,13 +1,13 @@
 import Navigation from "./HeaderCopmponents/navigation/Navigation.tsx";
-import SearchInput from "./HeaderCopmponents/searchInput/SearchInput.tsx";
-
+import {ScrollSection} from "./HeaderCopmponents/ScrollSection/ScrollSection.tsx";
+import "./style.css"
 
 
 const Header = () => {
     return (
         <header>
             <Navigation/>
-            <SearchInput/>
+            <ScrollSection/>
         </header>
     );
 };

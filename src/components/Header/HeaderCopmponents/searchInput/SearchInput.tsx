@@ -7,7 +7,7 @@ const SearchInput = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [apiResults, setApiResults] = useState([]);
     const [lang, setLang] = useState(localStorage.getItem('selectedLanguage'));
-    const [loading,setLoading] = useState(false);
+
 
     const accordionRef = useRef<HTMLDivElement | null>(null);
     type LanguageKeys = keyof Content;
@@ -20,8 +20,6 @@ const SearchInput = () => {
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setLoading(true)
-
         const value = e.currentTarget.value;
         const lang = localStorage.getItem('selectedLanguage');
         setLang(lang)

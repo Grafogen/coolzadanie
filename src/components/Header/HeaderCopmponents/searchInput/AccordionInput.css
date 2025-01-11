@@ -2,7 +2,7 @@
     width: 270px;
     margin: 120px auto;
     height: 37px;
-
+justify-content: flex-start;
 }
 
 .input {

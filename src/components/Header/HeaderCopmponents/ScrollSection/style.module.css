@@ -1,0 +1,111 @@
+.header__carousel {
+    position: relative;
+    min-height: 550px;
+}
+
+.header__container {
+    width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+    padding-top: 100px;
+}
+
+.coolPass__background {
+    min-height: 550px;
+    background-size: cover;
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.header__content {
+    position: absolute;
+    z-index: 100;
+    bottom: 81px;
+    left: 70px;
+
+}
+
+.photoBy {
+    height: 16px;
+    min-width: 172px;
+    position: absolute;
+    right: 70px;
+    bottom: 10px;
+    font-weight: 600;
+    color: #f9f9fb;
+    font-size: 12px;
+    line-height: 130%;
+}
+
+.header__titleBlock {
+    text-align: left;
+    margin-top: 53px;
+    width: 1026px;
+    height: 135px;
+    padding: 9px 0 35px 22px;
+    box-sizing: border-box;
+}
+
+.header__title {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 130%;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.header__subtitle {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 130%;
+    color: #fff;
+    text-transform: none;
+    margin-top: 8px;
+    margin-left: 3px;
+}
+
+.form__container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 26px;
+    margin-top: 27px;
+}
+.swiper__for__pc {
+    display: none;
+}
+
+.header__carousel .swiper-pagination-clickable .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+}
+
+.header__carousel .swiper-pagination-bullets,
+.header__carousel .swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: absolute;
+}
+
+.header__carousel .swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 1;
+}
+
+.header__carousel .swiper-pagination-bullet-active {
+    background-color: #DA4B07;
+}
+.swiper__for__mobile {
+    display: none;
+}
+.header_mobile_version {
+    display: none;
+}
+
+.mobile__search {
+    display: none;
+}
+
