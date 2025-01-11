@@ -12,3 +12,12 @@ header {
     height: 600px;
     color: #fff;
 }
+
+.swiper_pagination_bullet {
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    line-height: 20px;
+    opacity: 1;
+    background: rgb(219, 208, 204);
+}

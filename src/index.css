@@ -1,0 +1,12 @@
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 14px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 14px));
+    display: inline-block;
+    border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+    background: var(--swiper-pagination-bullet-inactive-color, #ffeaea);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 1);
+}
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: #da4b07;
+}

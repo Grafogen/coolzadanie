@@ -3,7 +3,7 @@ import Header from "./components/Header/Header.tsx";
 import {Route, Routes} from "react-router-dom";
 import {createContext, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
-
+import './index.css'
 // @ts-ignore
 export const StateContext= createContext()
 
@@ -16,8 +16,7 @@ function App() {
         if (!response.ok){
             console.error('Ошибка запроса:', response.status);
         }
-       const data = await response.json();
-        console.log(data);
+        const data = await response.json();
         return data
     };
     const {data:translation, isSuccess} = useQuery({

@@ -111,14 +111,3 @@
     display: none;
 }
 
-.swiper_custom{
-        width: 12px;
-        height: 12px;
-        text-align: center;
-        line-height: 20px;
-        opacity: 1;
-        background: rgb(219, 208, 204);
-}
-.swiper_custom:active {
-    background: #d25014;
-}

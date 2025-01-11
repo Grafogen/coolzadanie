@@ -5,6 +5,7 @@ import {ScrollSectionInterface} from "../../../../types/scrollSectionTypes.ts";
 import {useQuery} from "@tanstack/react-query";
 import {Content} from "../../../../types/inputTypes.ts";
 import S from './style.module.css'
+import '../../style.css'
 
 // @ts-ignore
 import "swiper/css";
@@ -49,8 +50,9 @@ export const ScrollSection = () => {
                                 stopOnLastSlide: false
                             }}
                             pagination={{
-                                clickable: true,
-                            }}>
+                                clickable:true,
+                            }}
+                         >
                             {content.data?.mainImage.web_image.map((item, index) => {
                                 return (
                                     <SwiperSlide key={index}>
