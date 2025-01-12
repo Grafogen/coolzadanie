@@ -1,6 +1,6 @@
 .header__carousel {
     position: relative;
-    min-height: 550px;
+    max-height: 550px;
 }
 
 .header__container {
@@ -22,7 +22,7 @@
 .header__content {
     position: absolute;
     z-index: 100;
-    bottom: 131px;
+    bottom: 43px;
     left: 70px;
     height:350px ;
     display: flex;
@@ -39,6 +39,7 @@
     color: #f9f9fb;
     font-size: 12px;
     line-height: 130%;
+    z-index: 1000;
 }
 
 .header__titleBlock {

@@ -1,4 +1,4 @@
-export interface ScrollSectionInterface {
+export interface PageDataInterface {
     _id: string;
     name: string;
     mainImage: MainImage;
@@ -17,32 +17,8 @@ export interface Content {
     es: De;
     ru: Ru;
     cs: De;
-    pt: Pt;
-    nl: Pt;
     pl: De;
-    zh: Zh;
-    ko: Zh;
-    hu: Zh;
-    ro: Zh;
-    he: Zh;
-    jp: Zh;
-    ar: Zh;
-}
 
-export interface Zh {
-    how_to_use: Howtouse4;
-    title:string,
-    subtitle:string,
-}
-
-export interface Pt {
-    how_to_use: Howtouse4;
-    title:string,
-    subtitle:string,
-}
-
-export interface Howtouse4 {
-    descriptions: null[];
 }
 
 
@@ -67,14 +43,17 @@ export interface De {
 }
 
 export interface Howtouse3 {
+    how_to_use_title?: any;
     descriptions: string[];
 }
 
 export interface Offers3 {
+    offers_title?: any;
     items: Item2[];
 }
 
 export interface Benefits3 {
+    benefits_title?: any;
     items: Item[];
 }
 

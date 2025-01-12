@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import {Button} from "../../../OrangeButton/Button.tsx";
 import {MouseEvent, useContext, useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
-import {Content, LangInterface, MenuInterface} from "../../../../types/dataTypes.ts";
+import {Content, LangInterface, MenuInterface} from "../../../../types/MenuDataTypes.ts";
 import {StateContext} from "../../../../App.tsx";
 
 const Navigation = () => {
@@ -62,7 +62,7 @@ const Navigation = () => {
     useEffect(() => {
         localStorage.setItem('selectedLanguage', language);
         setGlobalLanguage(language);
-    }, [language]);
+    }, [language, setGlobalLanguage]);
 
     type LanguageKeys = keyof Content;
 
