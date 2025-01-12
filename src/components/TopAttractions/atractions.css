@@ -1,0 +1,24 @@
+.attractions__left__control,
+.attractions__right__control {
+    background: url(https://praguecoolpass.com/img/left-arrow.4841114c.svg) 50% no-repeat;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.attractions__control__disabled {
+    opacity: 0.35;
+}
+
+.attractions__right__control {
+    background: url(https://praguecoolpass.com/img/right-arrow.7fb8afe3.svg) 50% no-repeat;
+}
+
+
+@media (max-width: 426px) {
+
+    .attractions__left__control,
+    .attractions__right__control {
+        display: none;
+    }
+}

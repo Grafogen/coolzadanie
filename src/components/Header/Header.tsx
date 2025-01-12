@@ -2,15 +2,20 @@ import Navigation from "./HeaderCopmponents/navigation/Navigation.tsx";
 import {ScrollSection} from "./HeaderCopmponents/ScrollSection/ScrollSection.tsx";
 import "./style.css"
 import {UnderBar} from "./HeaderCopmponents/underbar/Underbar.tsx";
+import {Attractions} from "../TopAttractions/Attractions.tsx";
 
 
 const Header = () => {
     return (
-        <header>
-            <Navigation/>
-            <ScrollSection/>
-            <UnderBar/>
-        </header>
+        <div>
+            <header>
+                <Navigation/>
+                <ScrollSection/>
+                <UnderBar/>
+            </header>
+            <Attractions/>
+        </div>
+
     );
 };
 

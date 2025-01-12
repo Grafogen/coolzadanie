@@ -5,6 +5,7 @@ import {createContext, Dispatch, SetStateAction, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import './index.css'
 import {PageDataInterface} from "./types/PageDataTypes.ts";
+import {LangsInterface} from "./types/Langs.ts";
 // @ts-ignore
 export const StateContext= createContext()
 
@@ -12,7 +13,7 @@ export interface StateContextType {
     globalLanguage: string;
     pageContent: PageDataInterface | undefined;
     setGlobalLanguage: Dispatch<SetStateAction<string>>;
-    translation:unknown ;// 3000 строк типов для каждой фразы пожалуй отдохнут
+    translation:LangsInterface ;// 3000 строк типов для каждой фразы пожалуй отдохнут
 }
 
 function App() {

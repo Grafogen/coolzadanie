@@ -18,7 +18,6 @@ export interface Content {
     ru: Ru;
     cs: De;
     pl: De;
-
 }
 
 
