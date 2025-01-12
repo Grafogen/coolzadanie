@@ -3,8 +3,9 @@ import {NavLink} from "react-router-dom";
 import {Button} from "../../../OrangeButton/Button.tsx";
 import {MouseEvent, useContext, useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
-import {Content, LangInterface, MenuInterface} from "../../../../types/MenuDataTypes.ts";
+import { LangInterface, MenuInterface} from "../../../../types/MenuDataTypes.ts";
 import {StateContext} from "../../../../App.tsx";
+import {LanguageKeys} from "../../../../helpers/languageKeys.ts";
 
 const Navigation = () => {
 
@@ -64,7 +65,7 @@ const Navigation = () => {
         setGlobalLanguage(language);
     }, [language, setGlobalLanguage]);
 
-    type LanguageKeys = keyof Content;
+
 
     const chooseLang = (e: MouseEvent<HTMLLIElement, globalThis.MouseEvent>) => {
         if (e.currentTarget.lang !== null) {

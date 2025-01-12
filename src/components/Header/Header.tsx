@@ -3,6 +3,7 @@ import {ScrollSection} from "./HeaderCopmponents/ScrollSection/ScrollSection.tsx
 import "./style.css"
 import {UnderBar} from "./HeaderCopmponents/underbar/Underbar.tsx";
 import {Attractions} from "../TopAttractions/Attractions.tsx";
+import Benefits from "../AppBenefitsSection/Benefits.tsx";
 
 
 const Header = () => {
@@ -14,6 +15,7 @@ const Header = () => {
                 <UnderBar/>
             </header>
             <Attractions/>
+            <Benefits/>
         </div>
 
     );

@@ -2,7 +2,7 @@
 import { useContext } from "react"
 import s from './style.module.css'
 import {StateContext, StateContextType} from "../../../../App.tsx";
-import {Content} from "../../../../types/PageDataTypes.ts";
+import {LanguageKeys} from "../../../../helpers/languageKeys.ts";
 
 
 export const UnderBar = () => {
@@ -14,7 +14,6 @@ export const UnderBar = () => {
         throw new Error('MyComponent must be used within a StateProvider');
     }
     const { globalLanguage, pageContent} =context;
-    type LanguageKeys = keyof Content;
     return (
         pageContent &&
         <>

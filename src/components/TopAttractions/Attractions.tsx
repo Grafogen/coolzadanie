@@ -4,10 +4,10 @@ import {Navigation} from 'swiper/modules';
 import s from './style.module.css'
 import {Card} from "./card/Card.tsx";
 import {StateContext, StateContextType} from "../../App.tsx";
-import {Content} from "../../types/PageDataTypes.ts";
 import {useQuery} from "@tanstack/react-query";
 import './atractions.css'
 import {AttractionsDataInterface} from "../../types/AttractionsDataTypes.ts";
+import {LanguageKeys} from "../../helpers/languageKeys.ts";
 
 export const Attractions = () => {
     const swiperRef = useRef(null);
@@ -29,10 +29,6 @@ export const Attractions = () => {
         queryKey: ['attractionsData'],
         queryFn: getAttractionsData
     });
-
-
-    type LanguageKeys = keyof Content;
-
 
 
     return (

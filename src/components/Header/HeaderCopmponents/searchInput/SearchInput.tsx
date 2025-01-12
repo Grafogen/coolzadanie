@@ -1,8 +1,9 @@
 import './AccordionInput.css';
 import {ChangeEvent, useContext, useEffect, useRef, useState} from "react";
-import {InputInterface, Content} from "../../../../types/inputTypes.ts";
+import {InputInterface} from "../../../../types/inputTypes.ts";
 import {Button} from "../../../OrangeButton/Button.tsx";
 import {StateContext} from "../../../../App.tsx";
+import {LanguageKeys} from "../../../../helpers/languageKeys.ts";
 
 const SearchInput = () => {
     const [inputValue, setInputValue] = useState('');
@@ -15,7 +16,6 @@ const SearchInput = () => {
 
 
     const accordionRef = useRef<HTMLDivElement | null>(null);
-    type LanguageKeys = keyof Content;
     const capitalizeWords = (sentence: string) => {
         if (!sentence) return sentence;
         return sentence

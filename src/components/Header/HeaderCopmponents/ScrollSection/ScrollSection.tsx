@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import  SearchInput  from "../searchInput/SearchInput.tsx";
-import {Content} from "../../../../types/PageDataTypes.ts";
 import S from './style.module.css'
 import '../../style.css'
 
@@ -11,6 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import {useContext } from "react";
 import {StateContext, StateContextType} from "../../../../App.tsx";
+import {LanguageKeys} from "../../../../helpers/languageKeys.ts";
 
 export const ScrollSection = () => {
     // @ts-ignore
@@ -19,9 +19,6 @@ export const ScrollSection = () => {
         throw new Error('MyComponent must be used within a StateProvider');
     }
     const {pageContent, globalLanguage}=context
-
-    type LanguageKeys = keyof Content;
-
 
     return (
         <section >
