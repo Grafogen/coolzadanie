@@ -1,0 +1,94 @@
+.h3_container {
+    width: 100%;
+    margin-left:71px ;
+    margin-top: 50px ;
+    margin-bottom:30px ;
+    display: flex;
+    justify-content: flex-start;
+}
+
+h3 {
+    font-family: Open Sans Bold, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #252c3e;
+}
+
+.content{
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1140px;
+    max-height: 620px;
+    margin-left: 71px ;
+}
+
+.card{
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 560px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.content_container{
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    height: 0;
+    width: 100%;
+}
+.content_container:hover{
+    visibility: hidden;
+}
+.offer_btn{
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    background: rgba(218, 75, 7, .7);
+    border-radius: 10px;
+    width: 476px;
+    height: 71px;
+    text-align: center;
+    padding: 0 15px;
+    margin-top: 208px;
+}
+.offer_btn:hover{
+    visibility: hidden;
+}
+
+.offer_text{
+    font-family: 'Open Sans Bold', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 23px;
+}
+
+
+
+.popup_content{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: absolute;
+    height: 0;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(37, 44, 62, .85);
+}
+
+.popup_content:hover{
+    height:100%;
+}

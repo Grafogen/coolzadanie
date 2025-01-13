@@ -4,6 +4,7 @@ import "./style.css"
 import {UnderBar} from "./HeaderCopmponents/underbar/Underbar.tsx";
 import {Attractions} from "../TopAttractions/Attractions.tsx";
 import Benefits from "../AppBenefitsSection/Benefits.tsx";
+import Offers from "../OffersSection/Offers.tsx";
 
 
 const Header = () => {
@@ -16,6 +17,7 @@ const Header = () => {
             </header>
             <Attractions/>
             <Benefits/>
+            <Offers/>
         </div>
 
     );
