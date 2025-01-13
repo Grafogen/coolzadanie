@@ -15,7 +15,7 @@ const Offers = () => {
 
     return (
         pageContent && translation &&
-        <section>
+        <section className={s.section}>
             <div className={s.h3_container}>
                 <h3>{translation[globalLanguage as LanguageKeys]['HOME_offers_title']}</h3>
             </div>

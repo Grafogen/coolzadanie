@@ -28,6 +28,7 @@ const HowToUse = () => {
     return (
         translation && pageContent &&
         <section>
+            <div className={s.container}>
             <div className={s.h3_container}>
                 <h3>{translation[globalLanguage as LanguageKeys]['HOME_how_to_use_title']}</h3>
             </div>
@@ -55,6 +56,7 @@ const HowToUse = () => {
                     ))
                 )}
                 </div>
+            </div>
         </section>
     );
 };

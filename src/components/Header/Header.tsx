@@ -7,6 +7,7 @@ import Benefits from "../AppBenefitsSection/Benefits.tsx";
 import Offers from "../OffersSection/Offers.tsx";
 import HowToUse from "../How-to-use/HowToUse.tsx";
 import LastNews from "../LastNews/LastNews.tsx";
+import PassCard from "../BuyCard/BuyCard.tsx";
 
 
 const Header = () => {
@@ -22,6 +23,7 @@ const Header = () => {
             <Offers/>
             <HowToUse/>
             <LastNews/>
+            <PassCard/>
         </div>
 
     );

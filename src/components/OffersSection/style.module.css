@@ -1,3 +1,9 @@
+.section{
+    width: 1220px;
+    margin: 40px auto 0 auto;
+    user-select: none;
+}
+
 .h3_container {
     width: 100%;
     margin-left:71px ;

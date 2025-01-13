@@ -1,0 +1,301 @@
+.section{
+    max-width: 1220px;
+    margin: auto;
+}
+
+.h3_container {
+    width: 100%;
+    margin-left: 71px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+h3 {
+    font-family: 'Open Sans Bold', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #252c3e;
+}
+
+@media (max-width: 768px) {
+    .h3_container {
+        width: 95%;
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+}
+
+.calculator_container{
+    width: 355px;
+}
+.calculator_header{
+    height: 96px;
+    background: #252c3e;
+    border-radius: 10px 10px 0 0;
+    width: 340px;
+    padding: 8px;
+}
+.calculator_header_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2_header{
+    font-family: 'Open Sans Bold', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 34px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 19px;
+}
+
+.p_header{
+    font-family: 'Open Sans Semibold', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    margin-top: 4px;
+}
+.calculator_body{
+    display: flex;
+    align-items: center;
+    height: 210px;
+    flex-direction: column;
+    background: #f9f9fb;
+    width: 340px;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+.adult{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 327px;
+    margin-bottom: 15px;
+    margin-top: 22px;
+}
+
+.adult_label{
+    font-family: 'Open Sans Semibold', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #252c3e;
+    word-wrap: break-word;
+    min-width: 64px;
+    width: 64px;
+}
+.adult_label_price{
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #252c3e;
+    position: absolute;
+    top: -22px;
+    left: 94px;
+}
+.price_section{
+    font-family: Open Sans, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    color: rgba(37, 44, 62, .8);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.calculator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 2px;
+}
+.adult_price{
+    font-family: 'Open Sans Bold', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #252c3e;
+    margin-top: 4px;
+    width: 90px;
+}
+.decr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 3px 0 2px rgba(207, 206, 221, .08);
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    cursor: pointer;
+}
+.decr_span{
+    height: 0;
+    max-height: 0;
+    width: 14px;
+    border: 1px solid #252c3e;
+    background-color: #252c3e;
+    border-radius: 1px;
+}
+.count{
+    background: #fff;
+    height: 48px;
+    width: 64px;
+    box-shadow: -3px 0 2px rgba(207, 206, 221, .08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.counter_num{
+    font-family: 'Open Sans Bold', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #252c3e;
+}
+.inc{
+    border-radius: 0 4px 4px 0;
+    box-shadow: -3px 0 2px rgba(207, 206, 221, .08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    cursor: pointer;
+}
+.plus{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vertical{
+    position: absolute;
+    width: 0;
+    height: 14px;
+    border: 1px solid #252c3e;
+    background-color: #252c3e;
+    border-radius: 1px;
+}
+.horizontal{
+    height: 0;
+    max-height: 0;
+    width: 14px;
+    border: 1px solid #252c3e;
+    background-color: #252c3e;
+    border-radius: 1px;
+    position: absolute;
+}
+
+.student{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 327px;
+}
+
+.student_label{
+    font-family: 'Open Sans Semibold', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #252c3e;
+    word-wrap: break-word;
+    min-width: 64px;
+    width: 64px;
+    margin-top: 5px;
+}
+
+.total_price_section{
+    position: relative;
+}
+
+.total_price{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: auto;
+    margin-top: 19px;
+    margin-bottom: 18px;
+    align-items: center;
+    text-align: center;
+}
+
+.total_price_label{
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #252c3e;
+    margin-right: 5px;
+}
+
+.price{
+    font-family: Open Sans Bold, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #252c3e;
+}
+
+.calculator_footer{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background: #da4b07;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.calculator_footer_link{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.footer_text{
+    font-family: 'Open Sans Semibold', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #fff;
+}

@@ -1,4 +1,4 @@
-.top_prague__wrapper {
+.top_prague__wrapper{
     width: 1220px;
     margin: 40px auto 0 auto;
     user-select: none;
@@ -64,7 +64,7 @@
     position: absolute;
     bottom: 0;
     background-color: rgba(37, 44, 62, 0.6);
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 .top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .description {
     position: absolute;

@@ -46,7 +46,7 @@ const LastNews = () => {
     }, []);
 
     return (
-        <section>
+        <section className={s.section}>
             <div className={s.h3_container}>
                 <h3>{translation[globalLanguage as LanguageKeys]['HOME_news_title']}</h3>
             </div>

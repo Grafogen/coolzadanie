@@ -23,37 +23,41 @@ const Benefits = () => {
     };
 
     return (
-        <div className={s.main_container}>
-            <div className={s.h3_container}>
-                <h3>{translation[globalLanguage as LanguageKeys]['HOME_benefits_title']}</h3>
-            </div>
-            <div className={s.benefits_with_phone_container}>
-                <div className={s.benefits_container}>
-                    {pageContent?.content[globalLanguage as LanguageKeys].benefits.items.map((i, index) => (
-                        <div className={s.spoiler} key={index}>
-                            <div className={s.spoiler_title} onClick={() => toggleSpoiler(index)}>
-                                <h4 className={s.spoiler_title_text}>{i.title}</h4>
-                            </div>
-                            <div
-                                className={s.spoiler_content}
-                                style={{
-                                    height: activeSpoiler === index ? 'auto' : '0',
-                                    visibility: activeSpoiler === index ? 'visible' : 'hidden',
-                                }}
-                            >
-                                <div className={s.spoiler_content_text}>
-                                    <p dangerouslySetInnerHTML={{__html: `${i.text}`}}></p>
+        <section className={s.section}>
+            <div className={s.main_container}>
+                <div className={s.h3_container}>
+                    <h3>{translation[globalLanguage as LanguageKeys]['HOME_benefits_title']}</h3>
+                </div>
+                <div className={s.benefits_with_phone_container}>
+                    <div className={s.benefits_container}>
+                        {pageContent?.content[globalLanguage as LanguageKeys].benefits.items.map((i, index) => (
+                            <div className={s.spoiler} key={index}>
+                                <div className={s.spoiler_title} onClick={() => toggleSpoiler(index)}>
+                                    <h4 className={s.spoiler_title_text}>{i.title}</h4>
+                                </div>
+                                <div
+                                    className={s.spoiler_content}
+                                    style={{
+                                        height: activeSpoiler === index ? 'auto' : '0',
+                                        visibility: activeSpoiler === index ? 'visible' : 'hidden',
+                                    }}
+                                >
+                                    <div className={s.spoiler_content_text}>
+                                        <p dangerouslySetInnerHTML={{__html: `${i.text}`}}></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-                <div className={s.phone_container}>
-                    <div className={s.phone} style={{backgroundImage: 'url(https://praguecoolpass.com/img/mobile.87cdac93.png)'}}></div>
-                    <div className={s.card_background} style={{backgroundImage: 'url(https://praguecoolpass.com/img/prague-card-image.670e8103.png)'}}></div>
+                        ))}
+                    </div>
+                    <div className={s.phone_container}>
+                        <div className={s.phone}
+                             style={{backgroundImage: 'url(https://praguecoolpass.com/img/mobile.87cdac93.png)'}}></div>
+                        <div className={s.card_background}
+                             style={{backgroundImage: 'url(https://praguecoolpass.com/img/prague-card-image.670e8103.png)'}}></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
         ;
 };
