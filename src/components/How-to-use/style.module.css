@@ -1,0 +1,61 @@
+.h3_container {
+    width: 100%;
+    margin-left:71px ;
+    margin-top: 50px ;
+    margin-bottom:30px ;
+    display: flex;
+    justify-content: flex-start;
+}
+
+h3 {
+    font-family: 'Open Sans Bold', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #252c3e;
+}
+
+.how_container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 71px;
+}
+.step_container {
+    width: 270px;
+    height: 415px;
+    margin-right: 20px;
+}
+
+.step_image{
+    width: 269px;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+}
+
+.step_num{
+    margin-top: 14px;
+    font-family: 'Open Sans Bold', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 29px;
+    text-align: center;
+    color: #252c3e;
+}
+
+.step_text{
+    margin-top: 7px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    text-align: center;
+    color: #252c3e;
+}

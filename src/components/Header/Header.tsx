@@ -5,6 +5,7 @@ import {UnderBar} from "./HeaderCopmponents/underbar/Underbar.tsx";
 import {Attractions} from "../TopAttractions/Attractions.tsx";
 import Benefits from "../AppBenefitsSection/Benefits.tsx";
 import Offers from "../OffersSection/Offers.tsx";
+import HowToUse from "../How-to-use/HowToUse.tsx";
 
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
             <Attractions/>
             <Benefits/>
             <Offers/>
+            <HowToUse/>
         </div>
 
     );

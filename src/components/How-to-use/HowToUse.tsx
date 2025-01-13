@@ -1,10 +1,10 @@
 import s from "./style.module.css";
 import {LanguageKeys} from "../../helpers/languageKeys.ts";
-import {StateContext, StateContextType} from "../../App.tsx";
 import {useContext} from "react";
-import CardOffer from "./CardOffer/CardOffer.tsx";
+import {StateContext, StateContextType} from "../../App.tsx";
+import HowToCard from "./HowToUseCard/HowToCard.tsx";
 
-const Offers = () => {
+const HowToUse = () => {
 
     // @ts-ignore
     const context: StateContextType = useContext(StateContext)
@@ -14,15 +14,15 @@ const Offers = () => {
     const {globalLanguage, translation, pageContent} = context
 
     return (
-        pageContent && translation &&
+        translation && pageContent &&
         <section>
             <div className={s.h3_container}>
-                <h3>{translation[globalLanguage as LanguageKeys]['HOME_offers_title']}</h3>
+                <h3>{translation[globalLanguage as LanguageKeys]['HOME_how_to_use_title']}</h3>
             </div>
-            <div className={s.content}>
-                {pageContent?.offers.app_images.map((i, index) => {
+            <div className={s.how_container}>
+                {pageContent.how_to_use.web_images.map((i, index) => {
                     return (
-                        <CardOffer index={index} i={i} key={index}></CardOffer>
+                        <HowToCard key={index} index={index} i={i}/>
                     )
                 })}
             </div>
@@ -30,4 +30,4 @@ const Offers = () => {
     );
 };
 
-export default Offers;
+export default HowToUse;

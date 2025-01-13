@@ -30,7 +30,7 @@ const CardOffer = ({i, index}: any) => {
             {hovered && (
                 <div className={s.popup_content}>
                     <div className={s.text_container}>
-                        <h2 className={s.title_text}>{pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].title}</h2>
+                        <h4 className={s.title_text}>{pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].title}</h4>
                         <div className={s.popup_text}
                              dangerouslySetInnerHTML={{__html: pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].features_list || 'cucu'}}>
                         </div>
