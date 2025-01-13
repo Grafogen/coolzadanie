@@ -17,17 +17,6 @@ h3 {
     color: #252c3e;
 }
 
-@media (max-width: 768px) {
-    .h3_container {
-        width: 95%;
-        margin-left: 20px;
-    }
-
-    h3 {
-        font-size: 18px;
-    }
-}
-
 .news_container {
     display: flex;
     justify-items: center;
@@ -80,7 +69,7 @@ h3 {
 
 .news_content {
     flex: 1;
-    min-height: 350px;
+    max-height: 262px;
     height: auto;
 }
 
@@ -143,4 +132,80 @@ h4 {
     font-size: 15px;
     line-height: 19px;
     color: #fff;
+}
+
+@media (max-width: 768px) {
+    .h3_container {
+        width: 95%;
+        margin-left: 20px;
+        margin-top: 30px; /* Adjust margin for better spacing */
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .news_container {
+        margin-left: 0; /* Reset margin for full width */
+        margin-right: 0; /* Reset margin for full width */
+        padding: 0 15px;
+        height: auto;
+        row-gap: 20px;
+    }
+
+    .card_container {
+        display: flex; /* Use flex instead of grid for vertical stacking */
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Space between cards */
+        width: 100%; /* Ensure full width */
+
+    }
+
+    .image_container {
+        flex: none;
+        height: 261px;
+        width:100%;
+    }
+
+    .news_content {
+        width: 100%;
+        text-align: left;
+        height: 170px;
+        max-height: 200px;
+    }
+
+    h4 {
+        font-size: 16px;
+        margin-top: 22px;
+    }
+
+    .news_text {
+        font-size: 15px;
+    }
+
+    .link_text {
+        font-size: 12px;
+        margin-top: 0;
+    }
+
+    .allNews {
+        margin-top: 20px;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    .button {
+        min-width: 100%;
+        margin: 0;
+        height: 48px;
+    }
+}
+
+@media (max-width: 566px){
+    .news_content {
+        width: 100%;
+        text-align: left;
+        height: 170px;
+        max-height: 300px;
+    }
 }

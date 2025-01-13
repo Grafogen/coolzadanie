@@ -1,14 +1,17 @@
 import s from "./style.module.css";
 import {LanguageKeys} from "../../helpers/languageKeys.ts";
 import {StateContext, StateContextType} from "../../App.tsx";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {NewsTypesInterface} from "../../types/NewsDataTypes.ts";
 import truncateText from "../../helpers/textConcatination.ts"
 import {NavLink} from "react-router-dom";
 
-// https://api2.praguecoolpass.com/news
+
 const LastNews = () => {
+
+    const [truncateLength, setTruncateLength] = useState(550);
+
     // @ts-ignore
     const context: StateContextType = useContext(StateContext)
     if (!context) {
@@ -26,6 +29,21 @@ const LastNews = () => {
         queryKey: ['NewsData'],
         queryFn: getNewsData
     });
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setTruncateLength(300);
+            } else {
+                setTruncateLength(550);
+            }
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <section>
@@ -47,7 +65,9 @@ const LastNews = () => {
                             <div className={s.news_content}>
                                 <h4>{i.content.en.title}</h4>
                                 <p className={s.news_text}
-                                   dangerouslySetInnerHTML={{__html: truncateText(i.content.en.text, 550)}}></p>
+                                   dangerouslySetInnerHTML={{__html: truncateText(i.content.en.text, truncateLength)}}>
+
+                                </p>
                                 <a>
                                     <p className={s.link_text}>See more</p>
                                 </a>
