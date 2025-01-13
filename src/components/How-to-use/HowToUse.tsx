@@ -21,9 +21,7 @@ const HowToUse = () => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
-
         window.addEventListener('resize', handleResize);
-        // Cleanup listener on unmount
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 

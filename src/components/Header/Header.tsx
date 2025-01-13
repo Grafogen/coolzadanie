@@ -6,6 +6,7 @@ import {Attractions} from "../TopAttractions/Attractions.tsx";
 import Benefits from "../AppBenefitsSection/Benefits.tsx";
 import Offers from "../OffersSection/Offers.tsx";
 import HowToUse from "../How-to-use/HowToUse.tsx";
+import LastNews from "../LastNews/LastNews.tsx";
 
 
 const Header = () => {
@@ -20,6 +21,7 @@ const Header = () => {
             <Benefits/>
             <Offers/>
             <HowToUse/>
+            <LastNews/>
         </div>
 
     );
