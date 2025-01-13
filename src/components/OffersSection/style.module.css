@@ -157,3 +157,14 @@ h3 {
     text-transform: uppercase;
     padding: 0 20px;
 }
+
+@media (max-width: 768px) {
+
+    .h3_container {
+        width: 95%;
+        margin-left: 20px;
+    }
+    h3{
+        font-size: 18px;
+    }
+}

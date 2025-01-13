@@ -25,7 +25,7 @@ h3 {
 .step_container {
     width: 270px;
     height: 415px;
-    margin-right: 20px;
+    margin: 0 auto;
 }
 
 .step_image{
@@ -58,4 +58,29 @@ h3 {
     line-height: 23px;
     text-align: center;
     color: #252c3e;
+}
+
+@media (max-width: 768px) {
+    .step_container {
+        width: 90%;
+        max-width: 300px;
+    }
+    .h3_container {
+        width: 95%;
+        margin-left: 20px;
+    }
+    h3{
+        font-size: 18px;
+    }
+}
+
+.swiper {
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

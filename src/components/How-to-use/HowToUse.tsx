@@ -1,8 +1,10 @@
 import s from "./style.module.css";
 import {LanguageKeys} from "../../helpers/languageKeys.ts";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {StateContext, StateContextType} from "../../App.tsx";
 import HowToCard from "./HowToUseCard/HowToCard.tsx";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay, Navigation, Pagination} from "swiper/modules";
 
 const HowToUse = () => {
 
@@ -13,6 +15,18 @@ const HowToUse = () => {
     }
     const {globalLanguage, translation, pageContent} = context
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        // Cleanup listener on unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         translation && pageContent &&
         <section>
@@ -20,12 +34,29 @@ const HowToUse = () => {
                 <h3>{translation[globalLanguage as LanguageKeys]['HOME_how_to_use_title']}</h3>
             </div>
             <div className={s.how_container}>
-                {pageContent.how_to_use.web_images.map((i, index) => {
-                    return (
-                        <HowToCard key={index} index={index} i={i}/>
-                    )
-                })}
-            </div>
+                {isMobile ? (
+                    <Swiper
+                        modules={[Autoplay, Pagination, Navigation]}
+                        spaceBetween={0}
+                        slidesPerView={1}
+                        speed={1300}
+                        loop={false}
+                        pagination={{
+                            clickable: true,
+                        }}
+                    >
+                        {pageContent.how_to_use.web_images.map((i, index) => (
+                            <SwiperSlide key={index}>
+                                <HowToCard index={index} i={i} />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                ) : (
+                    pageContent.how_to_use.web_images.map((i, index) => (
+                        <HowToCard key={index} index={index} i={i} />
+                    ))
+                )}
+                </div>
         </section>
     );
 };
