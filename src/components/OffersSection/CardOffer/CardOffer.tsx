@@ -4,10 +4,9 @@ import {LanguageKeys} from "../../../helpers/languageKeys.ts";
 import {NavLink} from "react-router-dom";
 import {StateContext, StateContextType} from "../../../App.tsx";
 
-const CardOffer = ({i, index }:any) => {
+const CardOffer = ({i, index}: any) => {
 
     const [hovered, setHovered] = useState(false);
-
 
     // @ts-ignore
     const context: StateContextType = useContext(StateContext)
@@ -30,13 +29,17 @@ const CardOffer = ({i, index }:any) => {
             )}
             {hovered && (
                 <div className={s.popup_content}>
-                    <h2>{pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].title}</h2>
-                    <div className={s.body}
-                         dangerouslySetInnerHTML={{__html: pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].features_list}}></div>
-                    <div className={s.wrap__button}>
+                    <div className={s.text_container}>
+                        <h2 className={s.title_text}>{pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].title}</h2>
+                        <div className={s.popup_text}
+                             dangerouslySetInnerHTML={{__html: pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].features_list || 'cucu'}}>
+                        </div>
+                    </div>
+                    <div className={s.container_link}>
                         <NavLink to="*">
-                            <button
-                                className={s.no__working}>{pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].button_text}</button>
+                            <div className={s.wrap_link}>
+                                <button className={s.button_send}>{pageContent?.content[globalLanguage as LanguageKeys].offers.items[index].button_text}</button>
+                            </div>
                         </NavLink>
                     </div>
                 </div>
