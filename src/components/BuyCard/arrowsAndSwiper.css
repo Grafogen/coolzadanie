@@ -1,0 +1,57 @@
+.swiperBuy .swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: static !important;
+    margin-top: 25px;
+}
+
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+}
+
+.swiperBuy.swiper-pagination-bullet {
+    background: #252c3e;
+    opacity: .1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #DA4B07;
+    opacity: 1;
+}
+
+.buy__CoolPass__left__control,
+.buy__CoolPass__right__control {
+    background: url(https://praguecoolpass.com/img/right-arrow-orange.44f57960.svg) 50% no-repeat;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.buy__CoolPass__control__disabled {
+    opacity: .35;
+}
+
+.buy__CoolPass__left__control {
+    background: url(https://praguecoolpass.com/img/left-arrow-orange.4509d56d.svg) 50% no-repeat;
+
+}
+
+
+@media (max-width: 768px) {
+
+    .buy__CoolPass__left__control,
+    .buy__CoolPass__right__control {
+        display: none;
+    }
+
+    .swiperBuy .swiper {
+        width: 768px;
+    }
+}
+
+@media (max-width: 426px) {
+
+    .swiperBuy .swiper {
+        width: 100%;
+    }
+}

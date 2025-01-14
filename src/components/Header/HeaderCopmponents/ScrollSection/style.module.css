@@ -1,3 +1,4 @@
+
 .header__carousel {
     position: relative;
     max-height: 550px;
@@ -8,7 +9,6 @@
     margin: 0 auto;
     position: relative;
     z-index: 100;
-    padding-top: 100px;
 }
 
 .coolPass__background {
@@ -27,6 +27,9 @@
     height:350px ;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .photoBy {

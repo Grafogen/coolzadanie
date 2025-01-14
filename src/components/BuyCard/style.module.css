@@ -1,6 +1,7 @@
 .section{
-    max-width: 1220px;
-    margin: auto;
+    width: 1220px;
+    margin: 40px auto 0 auto;
+    user-select: none;
 }
 
 .h3_container {
@@ -298,4 +299,20 @@ h3 {
     line-height: 19px;
     text-transform: uppercase;
     color: #fff;
+}
+.swiper_wrapper{
+    width: 100%;
+}
+
+.content{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.swiper_container{
+    width: 1140px;
+    margin: 0 auto;
+    position: relative;
 }
