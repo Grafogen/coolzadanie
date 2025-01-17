@@ -17,15 +17,12 @@ const Calculator = ({ item }: CalcProps) => {
     }
     const { globalLanguage, translation } = context;
 
-    // State for adult and student counts
     const [adultCount, setAdultCount] = useState(0);
     const [studentCount, setStudentCount] = useState(0);
 
-    // Prices from props
     const adultPrice = item.products[0].price;
     const studentPrice = item.products[1].price;
 
-    // Calculate total price
     const totalPrice = (adultCount * adultPrice) + (studentCount * studentPrice);
 
     return (

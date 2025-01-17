@@ -80,7 +80,24 @@ const PassCard = () => {
                     </div>
                 </div>
             </div>
-            <div></div>
+            <div className={s.tips}>
+                <div className={s.first_tip}>
+                    <ul>
+                        <li>{translation[globalLanguage as LanguageKeys]['CALCULATOR_card_validity']}</li>
+                        <li>{translation[globalLanguage as LanguageKeys]['CALCULATOR_child_card_validity_tip']}</li>
+                    </ul>
+                </div>
+                <div className={s.second_tip}>
+                    <ul>
+                        <li>{translation[globalLanguage as LanguageKeys]['CALCULATOR_student_id_info']}</li>
+                    </ul>
+                </div>
+                <div className={s.third_tip}>
+                    <p>{translation[globalLanguage as LanguageKeys]['ADULT_AGE']}</p>
+                    <p>{translation[globalLanguage as LanguageKeys]['STUDENT_AGE']}</p>
+                    <p>{translation[globalLanguage as LanguageKeys]['CHILD_AGE']}</p>
+                </div>
+            </div>
         </section>
     );
 };

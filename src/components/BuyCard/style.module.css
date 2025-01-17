@@ -316,3 +316,50 @@ h3 {
     margin: 0 auto;
     position: relative;
 }
+
+.tips{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    height: auto;
+}
+.tips ul{
+    width: 354px;
+}
+
+.tips ul li{
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #252527;
+    margin-bottom: 11px;
+    padding-left: 10px;
+}
+.tips ul li::marker{
+    content: url(https://praguecoolpass.com/img/list-bullet.bfaee876.svg)
+}
+.first_tip{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+.second_tip{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+
+.third_tip{
+    margin-top: 25px;
+}
+
+.third_tip p{
+    font-family: Open Sans Bold, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #252527;
+    margin-bottom: 10px;
+}
