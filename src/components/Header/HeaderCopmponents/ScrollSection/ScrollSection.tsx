@@ -3,11 +3,6 @@ import {Autoplay, Pagination, Navigation} from "swiper/modules";
 import SearchInput from "../searchInput/SearchInput.tsx";
 import S from './style.module.css'
 import '../../style.css'
-
-// @ts-ignore
-import "swiper/css";
-// @ts-ignore
-import "swiper/css/pagination";
 import {useContext} from "react";
 import {StateContext, StateContextType} from "../../../../App.tsx";
 import {LanguageKeys} from "../../../../helpers/languageKeys.ts";

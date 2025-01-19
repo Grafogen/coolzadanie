@@ -1,11 +1,11 @@
 .section{
-    max-width: 1220px;
+    min-width: 1140px;
     margin:0 auto;
+    width: 1140px;
 }
 
 .h3_container {
     width: 100%;
-    margin-left: 71px;
     margin-top: 50px;
     margin-bottom: 30px;
     display: flex;
@@ -27,8 +27,6 @@ h3 {
     justify-items: center;
     row-gap: 65px;
     flex-direction: column;
-    margin-left: 71px;
-    margin-right: 71px;
 }
 
 .card_container {
@@ -124,7 +122,6 @@ h4 {
 
 .button {
     min-width: 228px;
-    margin-right: 71px;
     height: 48px;
     padding: 0 20px;
     background: #da4b07;

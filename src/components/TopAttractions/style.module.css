@@ -1,6 +1,6 @@
 .top_prague__wrapper{
-    width: 1220px;
-    margin: 40px auto 0 auto;
+    margin: 0 auto;
+    max-width: 1220px;
     user-select: none;
 }
 .top_prague__wrapper .top__attractions__title {
@@ -18,18 +18,18 @@
     justify-content: space-between;
 }
 .top_prague__wrapper .swiper_width .attractions__container {
-    width: 100%;
+    width: 1140px;
     overflow: hidden;
     margin: 0 auto;
-    user-select: none; /* Запретить выделение текста при перетаскивании */
+    user-select: none;
     display: flex;
 }
 .top_prague__wrapper .swiper_width .attractions__container .swiper-slide {
-    cursor: grab; /* Изменяет курсор для области карточек */
+    cursor: grab;
 }
 
 .top_prague__wrapper .swiper_width .attractions__container .swiper-slide:active {
-    cursor: grabbing; /* Изменяет курсор при активном перетаскивании */
+    cursor: grabbing;
 }
 .top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague {
     height: 204px;
@@ -151,6 +151,7 @@
         margin: 0;
     }
 }
+
 @media (max-width: 426px) {
     .top_prague__wrapper {
         width: auto;

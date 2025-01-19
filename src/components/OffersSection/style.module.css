@@ -1,12 +1,12 @@
 .section{
-    width: 1220px;
-    margin: 40px auto 0 auto;
+    min-width: 1140px;
+    width: 1140px;
+    margin: 0 auto;
     user-select: none;
 }
 
 .h3_container {
     width: 100%;
-    margin-left:71px ;
     margin-top: 50px ;
     margin-bottom:30px ;
     display: flex;
@@ -30,7 +30,6 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1140px;
     max-height: 620px;
-    margin-left: 71px ;
 }
 
 .card{

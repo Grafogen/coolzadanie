@@ -1,11 +1,11 @@
 import './App.css'
-import Header from "./components/Header/Header.tsx";
 import {Route, Routes} from "react-router-dom";
 import {createContext, Dispatch, SetStateAction, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import './index.css'
 import {PageDataInterface} from "./types/PageDataTypes.ts";
 import {LangsInterface} from "./types/Langs.ts";
+import AllSections from "./components/AllSections.tsx";
 // @ts-ignore
 export const StateContext= createContext()
 
@@ -60,7 +60,7 @@ function App() {
         <div>
             <StateContext.Provider value={value}>
                 <Routes>
-                    <Route path='/' element={<Header/>}/>
+                    <Route path='/' element={<AllSections/>}/>
                     {/*<Route path='/*' element={<UnderConstruction />} />*/}
                 </Routes>
             </StateContext.Provider>

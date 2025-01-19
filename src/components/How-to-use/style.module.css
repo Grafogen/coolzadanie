@@ -1,14 +1,14 @@
 .h3_container {
     width: 100%;
-    margin-left:71px ;
     margin-top: 50px ;
     margin-bottom:30px ;
     display: flex;
     justify-content: flex-start;
 }
 .container{
-    width: 1220px;
-    margin: 40px auto 0 auto;
+    min-width: 1140px;
+    width: 1140px;
+    margin: 0 auto;
 }
 
 h3 {
@@ -24,7 +24,6 @@ h3 {
 .how_container {
     display: flex;
     flex-direction: row;
-    margin-left: 71px;
 }
 .step_container {
     width: 270px;

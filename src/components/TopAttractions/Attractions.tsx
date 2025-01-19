@@ -8,6 +8,7 @@ import {useQuery} from "@tanstack/react-query";
 import './atractions.css'
 import {AttractionsDataInterface} from "../../types/AttractionsDataTypes.ts";
 import {LanguageKeys} from "../../helpers/languageKeys.ts";
+import '../../index.css'
 
 export const Attractions = () => {
     const swiperRef = useRef(null);
@@ -37,7 +38,7 @@ export const Attractions = () => {
             <h3 className={s.top__attractions__title}>{translation[globalLanguage as LanguageKeys]['HOME_top_attractions_title']}</h3>
             <div className={s.swiper_width}>
                 <div
-                    className="attractions__left__control "
+                    className="attractions__left__control"
                     onClick={() => {// @ts-ignore
                         swiperRef.current?.slidePrev()}}>
                 </div>

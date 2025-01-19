@@ -1,0 +1,56 @@
+.section{
+    min-width: 1140px;
+    width: 1140px;
+    margin:0 auto;
+}
+
+.h3_container {
+    width: 100%;
+    margin-top: 40px ;
+    display: flex;
+    justify-content: flex-start;
+}
+
+h3 {
+    font-family: Open Sans Bold, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #252c3e;
+}
+
+
+
+.stars_wrap{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: auto;
+}
+
+.rating{
+    margin-left: auto;
+    margin-right: 12px;
+    font-family: Open Sans Bold, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+    color: #252c3e;
+}
+
+.stars{
+    width: 120px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.active_star{
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url(https://praguecoolpass.com/img/star-active.2039dc72.svg)
+}
