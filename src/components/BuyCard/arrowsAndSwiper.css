@@ -1,4 +1,4 @@
-.swiperBuy .swiper-pagination-bullets.swiper-pagination-horizontal {
+ .swiper-pagination-bullets.swiper-pagination-horizontal {
     position: static !important;
     margin-top: 25px;
 }
@@ -7,11 +7,6 @@
 .swiper-pagination-clickable .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
-}
-
-.swiperBuy.swiper-pagination-bullet {
-    background: #252c3e;
-    opacity: .1;
 }
 
 

@@ -46,7 +46,7 @@ const PassCard = () => {
                             }}>
                         </div>
                         <div className={s.swiper_container}>
-                            <div className='swiperBuy'>
+                            <div>
                                 <Swiper
                                     onSwiper={(swiper) => { // @ts-ignore
                                         swiperRef.current = swiper
