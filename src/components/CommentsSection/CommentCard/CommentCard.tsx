@@ -1,6 +1,7 @@
 import s from './style.module.css'
 import {useState} from "react";
 
+// @ts-ignore
 const CommentCard = ({card}) => {
 
     const MAX_STARS = 5;
@@ -13,6 +14,7 @@ const CommentCard = ({card}) => {
         'November', 'December'
     ];
 
+    // @ts-ignore
     const formatReviewDate = (dateString) => {
         dateString = dateString.slice(0, DATE_STRING_LENGTH);
         const dateParts = dateString.split('-').reverse();
