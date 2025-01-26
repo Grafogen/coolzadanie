@@ -54,8 +54,6 @@ const CommentCard = ({card}) => {
     const filledStarsCount = card['rating']
     const emptyStarsCount = MAX_STARS - filledStarsCount;
 
-    console.log(filledStarsCount, emptyStarsCount)
-
     const stars = [
         ...Array(filledStarsCount).fill('filled'),
         ...Array(emptyStarsCount).fill('empty')

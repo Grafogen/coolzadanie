@@ -10,6 +10,7 @@ import AllComments from "./CommentsSection/AllComments.tsx";
 import "swiper/css";
 // @ts-ignore
 import "swiper/css/pagination";
+import Footer from "./Footer/Footer.tsx";
 
 const AllSections = () => {
     return (
@@ -22,6 +23,7 @@ const AllSections = () => {
             <LastNews/>
             <PassCard/>
             <AllComments/>
+            <Footer/>
         </div>
 
     );

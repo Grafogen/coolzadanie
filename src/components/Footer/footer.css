@@ -1,0 +1,240 @@
+.footer {
+    margin-top: 130px;
+    width: 100%;
+    height: 314px;
+    background: #252c3e;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    width: 1140px;
+    margin-top: 42px;
+    display: flex;
+}
+
+.footer-links-group {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-right: 27px;
+}
+
+.footer-links-group a {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 130%;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.footer-about-us {
+    display: flex;
+    flex-direction: column;
+    margin-left: 67px;
+}
+
+.footer-faq {
+    width: auto;
+    height: 48px;
+    background: #DA4B07;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.footer-faq-text {
+    color: #fff;
+}
+
+
+.footer-faq:hover {
+    background: #EF5106;
+}
+
+.footer-download {
+    margin-left: 44px;
+}
+
+.footer-download-title {
+    text-transform: uppercase;
+}
+
+.footer-download p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.footer-appstore,
+.footer-google-play {
+    background: url(https://praguecoolpass.com/img/appstore.9b997285.png) 50% no-repeat;
+    background-size: cover;
+    margin-bottom: 10.67px;
+    height: 45px;
+    width: 156px;
+    cursor: pointer;
+}
+
+.footer-google-play {
+    background: url(https://praguecoolpass.com/img/googleplay.01cc5f25.png) 50% no-repeat;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+.footer-news-updates {
+    margin-left: 76px;
+}
+
+.footer-news-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    margin-bottom: 17px;
+}
+
+.footer-subscribe-form {
+    height: 48px;
+    display: flex;
+}
+
+.footer-subscribe-form input {
+    width: 227px;
+    height: 48px;
+    background: #fff;
+    border-radius: 5px;
+    border: none;
+    text-indent: 23.75px;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    padding: 0 106px 0 0;
+    color: #222;
+}
+
+.footer-subscribe-form input:active,
+.footer-subscribe-form input:hover,
+.footer-subscribe-form input:focus {
+    outline: 0;
+}
+
+.footer-subscribe-button {
+    background: #da4b07;
+    border: 2px solid #da4b07;
+    border-radius: 0 5px 5px 0;
+    min-width: 106px;
+    height: 48px;
+    margin-left: -106px;
+    padding: 0 15px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 130%;
+    color: #fff;
+}
+
+.footer-year,
+.footer-info {
+    margin-top: 14px;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 30px;
+    color: #fff;
+}
+
+.footer-reserved {
+    width: 348px;
+    height: 32px;
+    margin-top: 51px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #f9f9fb;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .footer {
+        width: auto;
+        height: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-links-group {
+        margin-right: 0;
+        margin-left: 16px;
+    }
+
+    .footer-about-us,
+    .footer-download,
+    .footer-news-updates {
+        margin-top: 32px;
+        margin-left: 16px;
+    }
+
+    .footer-faq {
+        max-width: 170px;
+        width: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .footer {
+        margin-top: 70px;
+
+        .footer-subscribe-form input {
+            width: 200px;
+            text-indent: 8px;
+        }
+    }
+}
+
+@media (max-width: 370px) {
+    .footer-content {
+        width: auto;
+    }
+
+    .footer-links-group,
+    .footer-about-us {
+        width: auto;
+    }
+
+    .footer-links-group {
+        margin-bottom: 32px;
+    }
+
+    .footer-about-us {
+        margin: 32px 0 32px 8px;
+    }
+
+    .footer-news-updates .footer-reserved {
+        width: auto;
+    }
+
+    .footer-news-updates .footer-subscribe-form input {
+        width: 180px;
+    }
+}
+
+@media (max-width: 350px) {
+    .footer-news-updates .footer-subscribe-form input {
+        width: 150px;
+    }
+}

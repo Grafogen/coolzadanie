@@ -7,12 +7,16 @@ import {ReviewInterface} from "../../types/ReviewType.ts";
 import CommentCard from "./CommentCard/CommentCard.tsx";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
-import '../BuyCard/arrowsAndSwiper.css'
+import './comments.css'
 import {NavLink} from "react-router-dom";
+
 
 const AllComments = () => {
     const swiperRef = useRef(null);
-
+    const refPrev = useRef();
+    const prevRef = useRef();
+    const nextRef = useRef();
+    const refNext = useRef();
     let sumStars = 0;
     let rating = 0;
 
@@ -21,7 +25,7 @@ const AllComments = () => {
     if (!context) {
         throw new Error('MyComponent must be used within a StateProvider');
     }
-    const {globalLanguage, translation} = context
+    const {globalLanguage, translation, screen} = context
 
     const getReviewData = async (): Promise<ReviewInterface[]> => {
         const response = await fetch(`https://api2.praguecoolpass.com/review/approved`);
@@ -44,11 +48,9 @@ const AllComments = () => {
 
     }
 
-    // Функция для случайного выбора 15 отзывов
+
     const getRandomReviews = (reviews: ReviewInterface[], count: number) => {
-        // Перемешиваем массив
         const shuffled = reviews.sort(() => 0.5 - Math.random());
-        // Возвращаем первые 15 элементов
         return shuffled.slice(0, count);
     }
 
@@ -78,50 +80,79 @@ const AllComments = () => {
                     </div>
                 </div>
             </div>
-            <div className={s.reviews_container}>
-                <div
-                    className="buy__CoolPass__left__control"
-                    onClick={() => {// @ts-ignore
-                        swiperRef.current?.slidePrev()
-                    }}>
-                </div>
-                <div className={s.reviews_wrap}>
-                    <Swiper
-                        onSwiper={(swiper) => { // @ts-ignore
-                            swiperRef.current = swiper
+            <div className='comments'>
+                <div className={s.reviews_container}>
+                    <div
+                        ref={prevRef}
+                        className="comments__left__control comments__control__disabled"
+                        onClick={() => {// @ts-ignore
+                            swiperRef.current?.slidePrev()
                         }}
-                        modules={[Navigation]}
-                        speed={1300}
-                        spaceBetween={20}
-                        allowTouchMove={true}
-                        slidesPerView={3}
-                        slidesPerGroup={3}
-                        updateOnWindowResize
-                    >
-                        {
-                            selectedReviews?.map((item, key) => {
-                                return (
-                                    <SwiperSlide key={key}>
-                                        <CommentCard card={item}/>
-                                    </SwiperSlide>
-                                )
-                            })}
-                    </Swiper>
-                </div>
-                <div
-                    className="buy__CoolPass__right__control"
-                    onClick={() => {// @ts-ignore
-                        swiperRef.current?.slideNext()
-                    }}>
-                </div>
-            </div>
-            <div>
-                <div className={s.links_container}>
-                    <div className={s.all_comments}>
-                        <NavLink to={'*'} >{translation[globalLanguage as LanguageKeys]['REVIEWS_see_all']}</NavLink>
+                        style={{ backgroundImage: `url("https://praguecoolpass.com/img/left-arrow.4841114c.svg")` }}>
                     </div>
-                    <div className={s.write}>
-                        <span >{translation[globalLanguage as LanguageKeys]['REVIEWS_write_your_opinion']}</span>
+                    <div className={s.reviews_wrap}>
+                        <Swiper
+                            onSwiper={(swiper) => { // @ts-ignore
+                                swiperRef.current = swiper
+                            }}
+                            onBeforeInit={(swiper) => {
+                                refPrev.current = swiper;
+                                refNext.current = swiper;
+                            }}
+                            modules={[Navigation]}
+                            speed={1300}
+                            spaceBetween={20}
+                            allowTouchMove={true}
+                            slidesPerView={screen <= 425 ? 1 : screen <= 768 ? 2 : 3}
+                            slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 3}
+                            updateOnWindowResize
+                            onSlideChange={(swiper) => {
+                                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                                swiper.isBeginning
+                                    ? prevRef.current.classList.add(
+                                        "comments__control__disabled"
+                                    )
+                                    : prevRef.current.classList.remove(
+                                        "comments__control__disabled"
+                                    );
+                                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                                swiper.isEnd
+                                    ? nextRef.current.classList.add(
+                                        "comments__control__disabled"
+                                    )
+                                    : nextRef.current.classList.remove(
+                                        "comments__control__disabled"
+                                    );
+                            }}
+                        >
+                            {
+                                selectedReviews?.map((item, key) => {
+                                    return (
+                                        <SwiperSlide key={key}>
+                                            <CommentCard card={item}/>
+                                        </SwiperSlide>
+                                    )
+                                })}
+                        </Swiper>
+                    </div>
+                    <div
+                        ref={nextRef}
+                        className="comments__right__control comments__control__disabled"
+                        onClick={() => {// @ts-ignore
+                            swiperRef.current?.slideNext()
+                        }}
+                        style={{ backgroundImage: `url("https://praguecoolpass.com/img/right-arrow.7fb8afe3.svg")` }}>
+
+                    </div>
+                </div>
+                <div>
+                    <div className={s.links_container}>
+                        <div className={s.all_comments}>
+                            <NavLink to={'*'}>{translation[globalLanguage as LanguageKeys]['REVIEWS_see_all']}</NavLink>
+                        </div>
+                        <div className={s.write}>
+                            <span>{translation[globalLanguage as LanguageKeys]['REVIEWS_write_your_opinion']}</span>
+                        </div>
                     </div>
                 </div>
             </div>

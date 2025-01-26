@@ -14,12 +14,17 @@ export interface StateContextType {
     pageContent: PageDataInterface | undefined;
     setGlobalLanguage: Dispatch<SetStateAction<string>>;
     translation:LangsInterface ;// 3000 строк типов для каждой фразы пожалуй отдохнут
+    screen:number;
 }
 
 function App() {
 
     const [globalLanguage, setGlobalLanguage] = useState(localStorage.getItem('selectedLanguage') || 'en');
+    const [screen, setScreen] = useState(0)
 
+    setInterval(() => {
+        setScreen(document.documentElement.clientWidth)
+    }, 100);
     const fetchTranslation = async () => {
         const response = await fetch(`https://api2.praguecoolpass.com/translation`);
         if (!response.ok){
@@ -50,7 +55,8 @@ function App() {
         globalLanguage: globalLanguage,
         pageContent: pageContent,
         setGlobalLanguage:setGlobalLanguage,
-        translation:translation
+        translation:translation,
+        screen
     };
 
     if(!isSuccess){

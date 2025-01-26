@@ -10,7 +10,13 @@
     z-index: 110;
     transition: all .2s ease-out;
 }
-
+.header_color{
+    background:#444959;
+}
+.hidden {
+    transform: translateY(-100%); /* Сдвиг вверх для скрытия */
+    transition: transform 0.3s ease-in-out; /* Плавный переход */
+}
 .header__Logo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: normal;
@@ -156,17 +162,6 @@
         color: #fff;
     }
 
-    /*.header {*/
-    /*    height: 56px;*/
-    /*    width: 768px;*/
-    /*    display: flex;*/
-    /*    justify-content: center;*/
-    /*    position: fixed;*/
-    /*    top: 0;*/
-    /*    left: 0;*/
-    /*    z-index: 1000;*/
-    /*}*/
-
     .header__container {
         width: auto;
     }
@@ -242,16 +237,16 @@
     .header__titles__list {
         display: none;
     }
-    .burger__menu .anim span:nth-child(1),
-    .burger__menu .anim span:nth-child(4) {
+    .burger__menu.anim span:nth-child(1),
+    .burger__menu.anim span:nth-child(4) {
         opacity: 0;
         transition: opacity 0.2s;
     }
-    .burger__menu .anim span:nth-child(2) {
+    .burger__menu.anim span:nth-child(2) {
         transform: rotateZ(45deg);
 
     }
-    .burger__menu .anim span:nth-child(3) {
+    .burger__menu.anim span:nth-child(3) {
         transform: rotateZ(-45deg);
 
     }
@@ -274,13 +269,22 @@
         overflow: hidden;
         z-index: 1000;
         transition: height .3s ease-in-out, padding .3s ease-in-out;
+
     }
 
     .header_mobile_version a {
+        font-family: Open Sans, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 130%;
+        text-decoration: none;
         color: #fff;
-        width: 304px;
-        margin: 0 0 30px;
-        padding-left: 30px;
+        cursor: pointer;
+        margin-top: 11px;
+        margin-bottom: 14px;
+        margin-right: 30px;
+        white-space: nowrap;
     }
 
     .header_mobile_version a .header__title__item {

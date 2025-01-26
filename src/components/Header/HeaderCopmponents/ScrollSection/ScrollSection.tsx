@@ -18,6 +18,7 @@ export const ScrollSection = () => {
     return (
         <section>
             {pageContent &&
+                <div className='scroll'>
                 <div className={S.header__carousel}>
                     {document.documentElement.clientWidth > 425 ?
                         <Swiper
@@ -83,6 +84,7 @@ export const ScrollSection = () => {
                     </div>
                     <div className={S.photoBy}> Prague City Tourism & Czech Tourism</div>
 
+                </div>
                 </div>}
         </section>
     )

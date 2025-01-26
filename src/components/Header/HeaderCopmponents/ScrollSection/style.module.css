@@ -29,7 +29,7 @@
     flex-direction: column;
     margin: 0 auto;
     justify-content: center;
-    align-items: center;
+
 }
 
 .photoBy {
@@ -115,3 +115,22 @@
     display: none;
 }
 
+
+.header__carousel .swiper-pagination-clickable .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+}
+
+.header__carousel .swiper-pagination-bullets,
+.header__carousel .swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: absolute;
+}
+
+.header__carousel .swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 1;
+}
+
+.header__carousel .swiper-pagination-bullet-active {
+    background-color: #DA4B07;
+}

@@ -20,17 +20,36 @@ const Navigation = () => {
         const savedLanguage = localStorage.getItem('selectedLanguage');
         return savedLanguage ? savedLanguage : (languagesData.data?.[0]?.alpha2code || 'EN');
     });
-    const handleResize = () => {
-        if (window.innerWidth > 768) {
-            setViewMob(false);
-        }
-    };
-
+    const [isMobile, setIsMobile] = useState(false);
+    const [headerVisible, setHeaderVisible] = useState(true); // новое состояние для видимости навигации
+    let lastScrollY = 0;
     useEffect(() => {
-        handleResize();
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setIsMobile(false);
+            }else{
+                setIsMobile(true);
+            }
+        };
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > lastScrollY) {
+                setHeaderVisible(false);
+            } else {
+                setHeaderVisible(true);
+            }
+            lastScrollY = window.scrollY;
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
@@ -86,27 +105,23 @@ const Navigation = () => {
         setViewMob(!viewMob)
         setBurgerAnimation(!burgerAnimation)
         setHeaderColor(!headerColor)
+
     }
 
-    const isMobile = window.innerWidth <= 768;
+
 
     return (
         isSuccess &&
         <>
-            <div className={s.header}>
+            <div className={`${s.header} ${viewMob && isMobile ? s.header_color : ''} ${headerVisible ? '' : s.hidden}`}>
                 <nav className={s.navBar}>
-                    <div className={s.navBar__burger}>
-                        <div className={s.burger__menu} onClick={() => {
-                            viewMenu()
-                        }}>
-                            <div className={`${s.burgerAnimation ? 'anim' : ''}`}>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+                    <div className={s.navBar__burger} onClick={viewMenu}>
+                        <div className={`${s.burger__menu} ${burgerAnimation ? s.anim : ''}`}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
-
                     </div>
                     <div className={s.header__Logo}>
                         CoolPass
@@ -134,7 +149,7 @@ const Navigation = () => {
                         </NavLink>
                         <div className={s.lang_container}>
                             <div
-                                className={`${s.btn_select_language} + ${!viewMob  ? s.btn_select_language_hide : s.btn_select_language}`}
+                                className={`${s.btn_select_language} + ${!viewMob ? s.btn_select_language_hide : s.btn_select_language}`}
                                 onClick={isViewLanguage}>
                                 <div className={s.language}>{language}</div>
                                 <div className={s.icon_spoiler_language}></div>
@@ -155,7 +170,7 @@ const Navigation = () => {
                             </div>
                         </div>
                     </div>
-                    {isMobile && viewMob && (
+                    { viewMob && (
                         <ul className={s.header_mobile_version}>
                             <NavLink to='*'><span
                                 className={s.header__title__item}>{isSuccess && data[0].content[language as LanguageKeys]?.title}</span></NavLink>
@@ -170,7 +185,7 @@ const Navigation = () => {
                             <NavLink to='*'><span
                                 className={s.header__title__item}>{isSuccess && data[46].content[language as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'>
-                                <Button text={'BUY ONLINE'}/>
+                                <Button style={{width:'258px'}} text={'BUY ONLINE'}/>
                             </NavLink>
                         </ul>
                     )}

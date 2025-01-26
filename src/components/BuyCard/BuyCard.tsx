@@ -12,13 +12,16 @@ import './arrowsAndSwiper.css'
 
 const PassCard = () => {
     const swiperRef = useRef(null);
-
+    const refPrev = useRef();
+    const prevRef = useRef();
+    const nextRef = useRef();
+    const refNext = useRef();
     // @ts-ignore
     const context: StateContextType = useContext(StateContext)
     if (!context) {
         throw new Error('MyComponent must be used within a StateProvider');
     }
-    const {globalLanguage, translation} = context
+    const {globalLanguage, translation, screen} = context
 
     const getPriceData = async (): Promise<Card[]> => {
         const response = await fetch(`https://api2.praguecoolpass.com/cardCategories?eshopId=77a85a2a-6b84-4d79-b856-dfafc14340a0`);
@@ -31,6 +34,8 @@ const PassCard = () => {
         queryFn: getPriceData
     });
 
+
+
     return (
         <section className={s.section}>
             <div className={s.h3_container}>
@@ -38,44 +43,75 @@ const PassCard = () => {
             </div>
             <div>
                 <div className={s.swiper_wrapper}>
-                    <div className={s.content}>
-                        <div
-                            className="buy__CoolPass__left__control "
-                            onClick={() => {// @ts-ignore
-                                swiperRef.current?.slidePrev()
-                            }}>
-                        </div>
-                        <div className={s.swiper_container}>
-                            <div>
-                                <Swiper
-                                    onSwiper={(swiper) => { // @ts-ignore
-                                        swiperRef.current = swiper
-                                    }}
-                                    modules={[Navigation, Pagination]}
-                                    speed={1300}
-                                    allowTouchMove={true}
-                                    slidesPerView={3}
-                                    slidesPerGroup={3}
-                                    pagination={{
-                                        clickable: true,
-                                    }}
-                                    updateOnWindowResize
-                                >
-                                    {PriceData?.map((item: Card, index: number) => {
-                                        return (
-                                            <SwiperSlide key={index}>
-                                                <Calculator item={item}/>
-                                            </SwiperSlide>
-                                        )
-                                    })}
-                                </Swiper>
+                    <div className='swipBuy'>
+                        <div className={s.content}>
+                            <div
+                                ref={prevRef}
+                                className="buy__CoolPass__left__control buy__CoolPass__control__disabled"
+                                onClick={() => {// @ts-ignore
+                                    swiperRef.current?.slidePrev()
+                                }}>
                             </div>
-                        </div>
-                        <div
-                            className="buy__CoolPass__right__control"
-                            onClick={() => {// @ts-ignore
-                                swiperRef.current?.slideNext()
-                            }}>
+                            <div className={s.swiper_container}>
+                                <div>
+                                    <Swiper
+                                        onSwiper={(swiper) => { // @ts-ignore
+                                            swiperRef.current = swiper
+                                        }}
+                                        onBeforeInit={(swiper) => {
+                                            // @ts-ignore
+                                            refPrev.current = swiper;
+                                            // @ts-ignore
+                                            refNext.current = swiper;
+                                        }}
+                                        modules={[Navigation, Pagination]}
+                                        speed={1300}
+                                        allowTouchMove={true}
+                                        spaceBetween={4}
+                                        slidesPerView={screen <= 425 ? 1.05 : screen <= 768 ? 2 : 3}
+                                        slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 2}
+                                        pagination={{
+                                            clickable: true,
+                                        }}
+                                        updateOnWindowResize
+                                        onSlideChange={(swiper) => {
+                                            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                                            swiper.isBeginning
+                                                ?// @ts-ignore
+                                                prevRef.current.classList.add(
+                                                    "buy__CoolPass__control__disabled"
+                                                )// @ts-ignore
+                                                : prevRef.current.classList.remove(
+                                                    "buy__CoolPass__control__disabled"
+                                                );
+                                            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                                            swiper.isEnd// @ts-ignore
+                                                ? nextRef.current.classList.add(
+                                                    "buy__CoolPass__control__disabled"
+                                                )// @ts-ignore
+                                                : nextRef.current.classList.remove(
+                                                    "buy__CoolPass__control__disabled"
+                                                );
+                                        }}
+                                    >
+                                        {PriceData?.map((item: Card, index: number) => {
+                                            return (
+                                                <SwiperSlide key={index}>
+                                                    <Calculator item={item}/>
+                                                </SwiperSlide>
+                                            )
+                                        })}
+                                    </Swiper>
+                                </div>
+
+                            </div>
+                            <div
+                                ref={nextRef}
+                                className="buy__CoolPass__right__control"
+                                onClick={() => {// @ts-ignore
+                                    swiperRef.current?.slideNext()
+                                }}>
+                            </div>
                         </div>
                     </div>
                 </div>

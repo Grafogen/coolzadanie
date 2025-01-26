@@ -13,4 +13,21 @@ header {
     color: #fff;
 }
 
+.scroll .swiper-pagination-clickable .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+}
 
+.scroll .swiper-pagination-bullets,
+.scroll .swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: absolute;
+}
+
+.scroll .swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 1;
+}
+
+.scroll .swiper-pagination-bullet-active {
+    background-color: #DA4B07;
+}
