@@ -134,4 +134,38 @@ margin-top: 0;
     h3{
         font-size: 18px;
     }
+    .benefits_with_phone_container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px ;
+    }
+    .benefits_container{
+        max-width: 768px;
+    }
+
+    .phone_container{
+        margin-left: 67px;
+        flex-direction: row;
+        position: relative;
+        max-height: 270px;
+    }
+
+    .phone{
+        margin-top: 40px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 246px;
+        width: 118.5px;
+        z-index: 2;
+    }
+
+    .card_background{
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 172px;
+        height: 115px;
+        position: absolute;
+        margin-top: -40px;
+        margin-left: -40px;
+    }
 }

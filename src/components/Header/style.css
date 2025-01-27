@@ -13,6 +13,14 @@ header {
     color: #fff;
 }
 
+@media (max-width: 768px) {
+    header {
+        width: 768px;
+        min-width: 768px;
+        height: auto;
+        color: #fff;
+    }
+}
 .scroll .swiper-pagination-clickable .swiper-pagination-bullet {
     width: 14px;
     height: 14px;
@@ -31,3 +39,4 @@ header {
 .scroll .swiper-pagination-bullet-active {
     background-color: #DA4B07;
 }
+

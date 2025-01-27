@@ -1,37 +1,41 @@
-.top_prague__wrapper{
+.top_prague__wrapper {
     margin: 0 auto;
     max-width: 1220px;
     user-select: none;
 }
-.top_prague__wrapper .top__attractions__title {
+
+.top_prague__title {
     margin: 40px;
     font-weight: 700;
-    font-style: normal;
     font-size: 22px;
     line-height: 130%;
     text-transform: uppercase;
     color: #252c3e;
 }
-.top_prague__wrapper .swiper_width {
+
+.swiper_width {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.top_prague__wrapper .swiper_width .attractions__container {
+
+.attractions__container {
     width: 1140px;
     overflow: hidden;
     margin: 0 auto;
-    user-select: none;
     display: flex;
+    user-select: none;
 }
-.top_prague__wrapper .swiper_width .attractions__container .swiper-slide {
+
+.swiper-slide {
     cursor: grab;
 }
 
-.top_prague__wrapper .swiper_width .attractions__container .swiper-slide:active {
+.swiper-slide:active {
     cursor: grabbing;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague {
+
+.item_list_top_prague {
     height: 204px;
     min-width: 270px;
     border-radius: 10px;
@@ -42,7 +46,8 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .title {
+
+.item_list_top_prague .title {
     height: 23px;
     position: absolute;
     top: 10px;
@@ -52,13 +57,13 @@
     padding: 0 14px;
     display: flex;
     align-items: center;
-    flex-direction: row;
     font-weight: 400;
     font-size: 14px;
     line-height: 23.1px;
     color: #252c3e;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar {
+
+.item_list_top_prague .bottom_bar {
     height: 60px;
     width: 100%;
     position: absolute;
@@ -66,7 +71,8 @@
     background-color: rgba(37, 44, 62, 0.6);
     border-radius: 0 0 10px 10px;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .description {
+
+.item_list_top_prague .bottom_bar .description {
     position: absolute;
     max-width: 194px;
     height: 100%;
@@ -79,12 +85,14 @@
     display: flex;
     align-items: center;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .body {
+
+.item_list_top_prague .bottom_bar .body {
     visibility: hidden;
     height: 45px;
     overflow: hidden;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .like {
+
+.item_list_top_prague .bottom_bar .like {
     position: absolute;
     width: 24px;
     height: 24px;
@@ -95,26 +103,28 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .like:hover {
+
+.item_list_top_prague .bottom_bar .like:hover {
     background-image: url(https://praguecoolpass.com/img/heart-active.72445abc.svg);
-    background-size: cover;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .likeFull {
+
+.item_list_top_prague .bottom_bar .likeFull {
     background-image: url(https://praguecoolpass.com/img/heart-active.72445abc.svg);
-    background-size: cover;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar:hover {
+
+.item_list_top_prague .bottom_bar:hover {
     height: 100px;
-    width: 100%;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar:hover .description {
+
+.item_list_top_prague .bottom_bar:hover .description {
     position: absolute;
     min-width: 194px;
     height: 18px;
     left: 20px;
     top: 12px;
 }
-.top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar:hover .body {
+
+.item_list_top_prague .bottom_bar:hover .body {
     min-height: 48px;
     width: 211px;
     overflow: hidden;
@@ -128,24 +138,22 @@
     line-height: 130%;
     color: white;
 }
+
 @media (max-width: 768px) {
     .top_prague__wrapper {
-        width: 768px;
+        max-width: 768px;
     }
-    .top_prague__wrapper .top__attractions__title {
+
+    .top_prague__title {
         margin: 40px;
-        font-weight: 700;
-        font-style: normal;
         font-size: 21px;
-        line-height: 130%;
-        text-transform: uppercase;
-        color: #252c3e;
     }
-    .top_prague__wrapper .attractions__container {
-        width: 90%;
-        margin: 0 auto;
+
+    .attractions__container {
+        width: 100%;
     }
-    .top_prague__wrapper .attractions__container .item_list_top_prague {
+
+    .item_list_top_prague {
         height: 204px;
         min-width: 250px;
         margin: 0;
@@ -157,27 +165,24 @@
         width: auto;
         padding: 0 8px;
     }
-    .top_prague__wrapper .top__attractions__title {
+
+    .top_prague__title {
         margin: 40px 8px;
     }
-    .top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .like:hover {
+
+    .item_list_top_prague .bottom_bar .like:hover {
         opacity: 0.8;
         background-image: url(https://praguecoolpass.com/img/heart-disable.e975f7bf.svg);
     }
-    .top_prague__wrapper .swiper_width .attractions__container .item_list_top_prague .bottom_bar .likeFull:hover {
+
+    .item_list_top_prague .bottom_bar .likeFull:hover {
         opacity: 0.8;
         background-image: url(https://praguecoolpass.com/img/heart-active.72445abc.svg);
     }
 }
+
 @media (max-width: 376px) {
-    .top_prague__wrapper .top__attractions__title {
-        font-style: normal;
-        font-weight: 700;
+    .top_prague__title {
         font-size: 18px;
-        line-height: 23px;
-        text-transform: uppercase;
-        color: #252c3e;
-        margin: 40px 8px;
     }
 }
- 

@@ -12,7 +12,7 @@ const SearchInput = () => {
     const [lang, setLang] = useState(localStorage.getItem('selectedLanguage'));
 
     // @ts-ignore
-    const {translation, globalLanguage}=useContext(StateContext);
+    const {translation, globalLanguage, screen}=useContext(StateContext);
 
 
     const accordionRef = useRef<HTMLDivElement | null>(null);
@@ -83,7 +83,11 @@ const SearchInput = () => {
             />
                 <div className="icon_search" onClick={handleIconClear}
                      style={{background: ` url(https://praguecoolpass.com/img/search.a842451d.svg)`}}></div>
+                {screen > 768 ?
                 <Button text={translation[globalLanguage]['APP_LETS_GO']}/>
+                :
+                    <Button style={{width:'100%'}} text={translation[globalLanguage]['APP_LETS_GO']}/>
+                }
             </div>
 
 

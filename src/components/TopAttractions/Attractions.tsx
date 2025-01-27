@@ -18,7 +18,7 @@ export const Attractions = () => {
         throw new Error('MyComponent must be used within a StateProvider');
     }
 
-    const {globalLanguage, translation} = context
+    const {globalLanguage, translation, screen} = context
 
     const getAttractionsData = async ():Promise<AttractionsDataInterface[]> => {
         const response = await fetch(`https://api2.praguecoolpass.com/object/attraction/top-attractions`);
@@ -50,8 +50,8 @@ export const Attractions = () => {
                         speed={1300}
                         spaceBetween={20}
                         allowTouchMove={true}
-                        slidesPerView={4}
-                        slidesPerGroup={3}
+                        slidesPerView={screen <= 425 ? 1.2 : screen <= 768 ? 1.2 : 4}
+                        slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 2}
                         updateOnWindowResize
                         >
                         {AttractionsData.map((item: AttractionsDataInterface, index: number) => {
