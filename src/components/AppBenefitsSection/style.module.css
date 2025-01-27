@@ -1,6 +1,6 @@
 .section{
-    min-width: 1140px;
-    width: 1140px;
+    max-width: 1140px;
+    width: 100%;
     margin: 0 auto;
     user-select: none;
 }
@@ -158,7 +158,9 @@ margin-top: 0;
         width: 118.5px;
         z-index: 2;
     }
-
+    .spoiler_content{
+        max-width: 736px;
+    }
     .card_background{
         background-repeat: no-repeat;
         background-size: cover;

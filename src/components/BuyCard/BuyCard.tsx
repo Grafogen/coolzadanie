@@ -68,7 +68,7 @@ const PassCard = () => {
                                         speed={1300}
                                         allowTouchMove={true}
                                         spaceBetween={4}
-                                        slidesPerView={screen <= 425 ? 1.05 : screen <= 768 ? 2 : 3}
+                                        slidesPerView={screen <= 425 ? 1.05 : screen <= 768 ? 1 : 3}
                                         slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 2}
                                         pagination={{
                                             clickable: true,

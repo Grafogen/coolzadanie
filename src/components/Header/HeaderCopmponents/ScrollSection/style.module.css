@@ -94,7 +94,6 @@
 
 
 @media (max-width: 768px) {
-    /* Основные стили для компонента */
     .header__carousel {
         position: relative;
         max-height: 400px;
@@ -145,7 +144,7 @@
         font-family: Arial, sans-serif;
         font-style: normal;
         font-weight: 700;
-        font-size: 24px; /* Уменьшаем размер шрифта для заголовка */
+        font-size: 24px;
         line-height: 130%;
         color: #fff;
         text-transform: uppercase;
@@ -162,25 +161,22 @@
         margin-left: 3px;
     }
 
-
-    /* Авто-результаты для поиска */
     .autocomplete__results {
-        display: block; /* Показываем результаты */
+        display: block;
     }
 
-    /* Убираем ненужные элементы */
     .header_mobile_version {
-        display: none; /* Скрываем мобильную версию, если не нужна */
+        display: none;
     }
 }
 
 @media (max-width: 426px) {
     .header__carousel {
-        max-height: 300px; /* Уменьшаем высоту для еще меньших экранов */
+        max-height: 300px;
     }
 
     .header__title {
-        font-size: 24px; /* Уменьшаем заголовок еще больше для маленьких экранов */
+        font-size: 24px;
     }
 
     .header__subtitle {

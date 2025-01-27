@@ -96,7 +96,9 @@ const AllComments = () => {
                                 swiperRef.current = swiper
                             }}
                             onBeforeInit={(swiper) => {
+                                // @ts-ignore
                                 refPrev.current = swiper;
+                                // @ts-ignore
                                 refNext.current = swiper;
                             }}
                             modules={[Navigation]}
@@ -109,18 +111,22 @@ const AllComments = () => {
                             onSlideChange={(swiper) => {
                                 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                                 swiper.isBeginning
-                                    ? prevRef.current.classList.add(
+                                    ? // @ts-ignore
+                                    prevRef.current.classList.add(
                                         "comments__control__disabled"
                                     )
-                                    : prevRef.current.classList.remove(
+                                    :// @ts-ignore
+                                    prevRef.current.classList.remove(
                                         "comments__control__disabled"
                                     );
                                 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                                 swiper.isEnd
-                                    ? nextRef.current.classList.add(
+                                    ?// @ts-ignore
+                                    nextRef.current.classList.add(
                                         "comments__control__disabled"
                                     )
-                                    : nextRef.current.classList.remove(
+                                    :// @ts-ignore
+                                    nextRef.current.classList.remove(
                                         "comments__control__disabled"
                                     );
                             }}

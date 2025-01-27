@@ -6,8 +6,8 @@
     justify-content: flex-start;
 }
 .container{
-    min-width: 1140px;
-    width: 1140px;
+    max-width: 1140px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -64,10 +64,7 @@ h3 {
 }
 
 @media (max-width: 768px) {
-    .step_container {
-        width: 90%;
-        max-width: 300px;
-    }
+
     .h3_container {
         width: 95%;
         margin-left: 20px;
@@ -77,6 +74,12 @@ h3 {
     }
     .container{
         width: 100%;
+    }
+    .how_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 768px;
     }
 }
 

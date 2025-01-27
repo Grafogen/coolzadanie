@@ -1,6 +1,6 @@
 .section{
-    min-width: 1140px;
-    width: 1140px;
+    max-width: 1140px;
+    width: 100%;
     margin: 0 auto;
     user-select: none;
 }
@@ -123,11 +123,7 @@ h3 {
 .container_link{
     width: 100%;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
     align-items: flex-end;
     height: 100%;
     margin-bottom: 40px;
@@ -171,5 +167,22 @@ h3 {
     }
     h3{
         font-size: 18px;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        max-width: 768px;
+        min-height: 1260px;
+        justify-content: center;
+    }
+    .card{
+        position: relative;
+        height: 300px;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 }

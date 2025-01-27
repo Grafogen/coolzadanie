@@ -1,7 +1,7 @@
 .section{
-    min-width: 1140px;
+    max-width: 1140px;
     margin:0 auto;
-    width: 1140px;
+    width: 100%;
 }
 
 .h3_container {
@@ -148,18 +148,18 @@ h4 {
     }
 
     .news_container {
-        margin-left: 0; /* Reset margin for full width */
-        margin-right: 0; /* Reset margin for full width */
+        margin-left: 0;
+        margin-right: 0;
         padding: 0 15px;
         height: auto;
         row-gap: 20px;
     }
 
     .card_container {
-        display: flex; /* Use flex instead of grid for vertical stacking */
-        flex-direction: column; /* Stack items vertically */
-        gap: 20px; /* Space between cards */
-        width: 100%; /* Ensure full width */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
 
     }
 
