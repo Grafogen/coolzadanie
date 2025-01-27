@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import s from '../style.module.css'
 import {AttractionsDataInterface} from "../../../types/AttractionsDataTypes.ts";
 import {LangsInterface} from "../../../types/Langs.ts";
@@ -14,8 +14,30 @@ export const Card = ({item, language, translation}:CardProps) => {
 
     const [likeFull, setLikeFull] = useState(false)
 
+    const itemId = item._id;
+
+
+    const updateLocalStorage = (id: string, isLiked: boolean) => {
+        const likes = JSON.parse(localStorage.getItem('likedAttractions') || '[]');
+        if (isLiked) {
+            likes.push(id);
+        } else {
+            const updatedLikes = likes.filter((likedId: string) => likedId !== id);
+            localStorage.setItem('likedAttractions', JSON.stringify(updatedLikes));
+            return;
+        }
+        localStorage.setItem('likedAttractions', JSON.stringify(likes));
+    };
+
+    useEffect(() => {
+        const likes = JSON.parse(localStorage.getItem('likedAttractions') || '[]');
+        setLikeFull(likes.includes(itemId));
+    }, [itemId]);
+
     function handleLikeClick() {
-        setLikeFull(!likeFull)
+        const newLikeState = !likeFull;
+        setLikeFull(newLikeState);
+        updateLocalStorage(itemId, newLikeState);
     }
 
     type Langkeys = keyof LangsInterface;
@@ -30,7 +52,7 @@ export const Card = ({item, language, translation}:CardProps) => {
                 <span className={s.description}>{item.content[language as Langkeys].title}</span>
                 <div className={s.body}
                      dangerouslySetInnerHTML={{__html: item.content[language as Langkeys].subtitle}}></div>
-                <div data-testid='likeId' className={`${s.like} ${likeFull ? `${s.likeFull}` : ''} `}
+                <div className={`${s.like} ${likeFull ? `${s.likeFull}` : ''} `}
                      onClick={handleLikeClick}></div>
             </div>
         </div>

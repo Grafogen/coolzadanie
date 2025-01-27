@@ -14,7 +14,7 @@
 }
 
 h3 {
-    font-family: Open Sans Bold, sans-serif;
+    font-family: 'Open Sans Bold', sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 22px;
@@ -184,5 +184,20 @@ h3 {
         width: 100%;
         background-repeat: no-repeat;
         background-position: center center;
+    }
+    .popup_text{
+        font-size: 12px;
+        margin-top:10px;
+        line-height: 15px;
+    }
+    .text_container{
+        padding: 0 22px;
+    }
+
+}
+
+@media (max-width: 555px) {
+    .offer_btn{
+        width: 260px;
     }
 }

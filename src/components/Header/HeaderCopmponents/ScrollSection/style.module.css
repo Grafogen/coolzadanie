@@ -85,9 +85,6 @@
     display: none;
 }
 
-.swiper__for__mobile {
-    display: none;
-}
 .header_mobile_version {
     display: none;
 }
@@ -106,10 +103,10 @@
 
     .coolPass__background {
         min-height: 250px;
-        background-size: cover;
-        width: 100%;
-        background-repeat: no-repeat;
-        background-position: center center;
+        /*background-size: cover;*/
+        /*width: 100%;*/
+        /*background-repeat: no-repeat;*/
+        /*background-position: center center;*/
     }
 
     .header__content {
@@ -170,16 +167,16 @@
     }
 }
 
-@media (max-width: 426px) {
-    .header__carousel {
-        max-height: 300px;
-    }
+@media (max-width: 450px) {
 
-    .header__title {
-        font-size: 24px;
-    }
+        .header__subtitle {
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 130%;
+            color: #fff;
+            height: auto;
+        }
 
-    .header__subtitle {
-        font-size: 18px; /* Уменьшаем подзаголовок для маленьких экранов */
-    }
 }

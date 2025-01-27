@@ -5,12 +5,20 @@
 }
 
 .input {
-    min-width: 270px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     margin-bottom: 5px;
-    margin-right: 21px;
+    min-width: 270px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: 400;
+    color: #252c3e;
+    line-height: 23px;
+    font-size: 14px;
+    padding-left: 12px;
+    padding-right: 32px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    border: 1px solid #ccc;
 }
 
 .accordion {
@@ -76,21 +84,6 @@
     flex-direction: row;
 }
 
-.wrap_search input {
-    min-width: 270px;
-    height: 37px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    font-weight: 400;
-    color: #252c3e;
-    line-height: 23px;
-    font-size: 14px;
-    padding-left: 12px;
-    padding-right: 32px;
-    box-sizing: border-box;
-    text-transform: capitalize;
-}
 
 .wrap_search input:active,
 .wrap_search input:hover,
@@ -99,7 +92,7 @@
     outline-offset: 0;
 }
 
-/* Адаптивные стили для SearchInput */
+
 @media (max-width: 768px) {
     .accordion-input {
         margin-top: 20px;
@@ -124,10 +117,7 @@
         background-size: contain;
         cursor: pointer;
     }
-    .input {
-        padding: 8px;
-        height: 35px;
-    }
+
 
     .wrap_search {
         display: flex;
@@ -135,41 +125,39 @@
     }
 
     .accordion {
-        border: none; /* Убираем границу на мобильных устройствах */
+        border: none;
     }
 
     .accordion-content {
-        max-height: 150px; /* Уменьшаем максимальную высоту для мобильных */
+        max-height: 150px;
     }
 
     .accordion-item {
-        padding: 8px; /* Уменьшаем отступы для элементов списка */
-        font-size: 12px; /* Уменьшаем размер шрифта */
+        padding: 8px;
+        font-size: 12px;
     }
 
     .api_results {
-        background-color: #ffffff; /* Убедитесь, что фон белый */
+        background-color: #ffffff;
     }
 
     .btn__letsgo {
-        width: 100%; /* Кнопка на всю ширину */
-        margin-top: 10px; /* Добавляем отступ сверху */
+        width: 100%;
+        margin-top: 10px;
     }
 }
 
 @media (max-width: 426px) {
     .accordion-input {
-        margin-top: 60px;
-        display: flex;
-        flex-direction: column;
+        margin-top: 10px;
     }
 
     .input {
-        height: 30px; /* Уменьшаем высоту для маленьких экранов */
-        padding: 5px; /* Уменьшаем внутренний отступ */
+        height: 30px;
+        padding: 5px;
     }
 
     .accordion-item {
-        font-size: 10px; /* Уменьшаем размер шрифта для очень маленьких экранов */
+        font-size: 10px;
     }
 }

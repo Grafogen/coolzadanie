@@ -103,3 +103,14 @@
     opacity: .6;
     max-width: 200px;
 }
+
+@media (max-width: 768px) {
+    .comment_container{
+        width: 100%;
+        min-height: 255px;
+        height: 100%;
+        background: #f9f9fb;
+        display: flex;
+        flex-direction: column;
+    }
+}

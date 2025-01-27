@@ -20,7 +20,6 @@ export const ScrollSection = () => {
             {pageContent &&
                 <div className='scroll'>
                     <div className={S.header__carousel}>
-                        {document.documentElement.clientWidth > 425 ?
                             <Swiper
                                 modules={[Autoplay, Pagination, Navigation]}
                                 spaceBetween={0}
@@ -46,32 +45,6 @@ export const ScrollSection = () => {
                                     )
                                 })}
                             </Swiper>
-                            :
-                            <Swiper
-                                modules={[Autoplay, Pagination, Navigation]}
-                                spaceBetween={0}
-                                slidesPerView={1}
-                                speed={1300}
-                                loop={true}
-                                autoplay={{
-                                    delay: 5000,
-                                    disableOnInteraction: false,
-                                    stopOnLastSlide: false
-                                }}
-                                pagination={{
-                                    clickable: true,
-                                }}>
-                                {pageContent.mainImage.app_image.map((item, index) => {
-                                    return (
-                                        <SwiperSlide key={index}>
-                                            <div className={`${S.coolPass__background}+ ${S.swiper__for__mobile}`}
-                                                 style={{backgroundImage: `url(https://static2.praguecoolpass.com/${item})`}}>
-                                            </div>
-                                        </SwiperSlide>
-                                    )
-                                })}
-                            </Swiper>}
-
                         <div className={S.header__container}>
                             <div className={S.header__content}>
                                 <div className={S.header__titleBlock}>
@@ -86,7 +59,11 @@ export const ScrollSection = () => {
                                 }
                             </div>
                         </div>
-                        <div className={S.photoBy}> Prague City Tourism & Czech Tourism</div>
+                        {screen > 768 ?
+                            <div className={S.photoBy}> Prague City Tourism & Czech Tourism</div>
+                            :
+                            <></>
+                        }
                     </div>
                 </div>}
         </section>

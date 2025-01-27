@@ -1,6 +1,6 @@
 .undertitle {
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     background: #da4b07;
     color: #fff;
     display: flex;
@@ -13,5 +13,5 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 130%;
-    margin: 0 auto;
+    margin: 8px;
 }

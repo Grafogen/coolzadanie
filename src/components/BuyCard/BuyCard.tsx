@@ -39,7 +39,7 @@ const PassCard = () => {
     return (
         <section className={s.section}>
             <div className={s.h3_container}>
-                <h3>{translation[globalLanguage as LanguageKeys]['BUY_COOLPASS_PRAGUE_CARD']}</h3>
+                <h3 className={s.h3}>{translation[globalLanguage as LanguageKeys]['BUY_COOLPASS_PRAGUE_CARD']}</h3>
             </div>
             <div>
                 <div className={s.swiper_wrapper}>
@@ -53,7 +53,7 @@ const PassCard = () => {
                                 }}>
                             </div>
                             <div className={s.swiper_container}>
-                                <div>
+
                                     <Swiper
                                         onSwiper={(swiper) => { // @ts-ignore
                                             swiperRef.current = swiper
@@ -68,7 +68,7 @@ const PassCard = () => {
                                         speed={1300}
                                         allowTouchMove={true}
                                         spaceBetween={4}
-                                        slidesPerView={screen <= 425 ? 1.05 : screen <= 768 ? 1 : 3}
+                                        slidesPerView={screen <= 425 ? 1.05 : screen <= 768 ? 1 : 3.05}
                                         slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 2}
                                         pagination={{
                                             clickable: true,
@@ -102,8 +102,6 @@ const PassCard = () => {
                                             )
                                         })}
                                     </Swiper>
-                                </div>
-
                             </div>
                             <div
                                 ref={nextRef}
@@ -129,9 +127,9 @@ const PassCard = () => {
                     </ul>
                 </div>
                 <div className={s.third_tip}>
-                    <p>{translation[globalLanguage as LanguageKeys]['ADULT_AGE']}</p>
-                    <p>{translation[globalLanguage as LanguageKeys]['STUDENT_AGE']}</p>
-                    <p>{translation[globalLanguage as LanguageKeys]['CHILD_AGE']}</p>
+                    <p className={s.one}>{translation[globalLanguage as LanguageKeys]['ADULT_AGE']}</p>
+                    <p className={s.two}>{translation[globalLanguage as LanguageKeys]['STUDENT_AGE']}</p>
+                    <p className={s.three}>{translation[globalLanguage as LanguageKeys]['CHILD_AGE']}</p>
                 </div>
             </div>
         </section>

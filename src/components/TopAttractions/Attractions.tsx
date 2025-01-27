@@ -20,7 +20,7 @@ export const Attractions = () => {
 
     const {globalLanguage, translation, screen} = context
 
-    const getAttractionsData = async ():Promise<AttractionsDataInterface[]> => {
+    const getAttractionsData = async (): Promise<AttractionsDataInterface[]> => {
         const response = await fetch(`https://api2.praguecoolpass.com/object/attraction/top-attractions`);
         const data = await response.json();
         return data
@@ -37,37 +37,67 @@ export const Attractions = () => {
         <section className={s.top_prague__wrapper}>
             <h3 className={s.top__attractions__title}>{translation[globalLanguage as LanguageKeys]['HOME_top_attractions_title']}</h3>
             <div className={s.swiper_width}>
-                <div
-                    className="attractions__left__control"
-                    onClick={() => {// @ts-ignore
-                        swiperRef.current?.slidePrev()}}>
-                </div>
-                <div className={s.attractions__container}>
-                    <Swiper
-                        onSwiper={(swiper) => { // @ts-ignore
-                            swiperRef.current = swiper }}
-                        modules={[Navigation]}
-                        speed={1300}
-                        spaceBetween={20}
-                        allowTouchMove={true}
-                        slidesPerView={screen <= 425 ? 1.2 : screen <= 768 ? 1.2 : 4}
-                        slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 2}
-                        updateOnWindowResize
+                {screen > 768 ?
+                    <>
+                        <div
+                            className="attractions__left__control"
+                            onClick={() => {// @ts-ignore
+                                swiperRef.current?.slidePrev()
+                            }}>
+                        </div>
+                        <div className={s.attractions__container}>
+                            <Swiper
+                                onSwiper={(swiper) => { // @ts-ignore
+                                    swiperRef.current = swiper
+                                }}
+                                modules={[Navigation]}
+                                speed={1300}
+                                spaceBetween={20}
+                                allowTouchMove={true}
+                                slidesPerView={screen <= 425 ? 1.2 : screen <= 768 ? 1.2  : screen <= 888 ? 2 : screen <= 1150 ? 3 : 4}
+                                slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 2}
+                                updateOnWindowResize
+                            >
+                                {AttractionsData.map((item: AttractionsDataInterface, index: number) => {
+                                    return (
+                                        <SwiperSlide key={index}>
+                                            <Card item={item} language={globalLanguage} translation={translation}/>
+                                        </SwiperSlide>
+                                    )
+                                })}
+                            </Swiper>
+                        </div>
+                        <div
+                            className="attractions__right__control"
+                            onClick={() => {// @ts-ignore
+                                swiperRef.current?.slideNext()
+                            }}>
+                        </div>
+                    </>
+                    :
+                    <div className={s.attractions__container}>
+                        <Swiper
+                            onSwiper={(swiper) => { // @ts-ignore
+                                swiperRef.current = swiper
+                            }}
+                            modules={[Navigation]}
+                            speed={1300}
+                            spaceBetween={20}
+                            allowTouchMove={true}
+                            slidesPerView={1.2 }
+                            slidesPerGroup={1}
+                            updateOnWindowResize
                         >
-                        {AttractionsData.map((item: AttractionsDataInterface, index: number) => {
-                            return (
-                                <SwiperSlide key={index}>
-                                    <Card item={item} language={globalLanguage} translation={translation}/>
-                                </SwiperSlide>
-                            )
-                        })}
-                    </Swiper>
-                </div>
-                <div
-                    className="attractions__right__control"
-                    onClick={() => {// @ts-ignore
-                        swiperRef.current?.slideNext()}}>
-                </div>
+                            {AttractionsData.map((item: AttractionsDataInterface, index: number) => {
+                                return (
+                                    <SwiperSlide key={index}>
+                                        <Card item={item} language={globalLanguage} translation={translation}/>
+                                    </SwiperSlide>
+                                )
+                            })}
+                        </Swiper>
+                    </div>
+                }
             </div>
         </section>
     )

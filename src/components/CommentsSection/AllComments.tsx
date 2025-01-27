@@ -105,8 +105,8 @@ const AllComments = () => {
                             speed={1300}
                             spaceBetween={20}
                             allowTouchMove={true}
-                            slidesPerView={screen <= 425 ? 1 : screen <= 768 ? 2 : 3}
-                            slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 3}
+                            slidesPerView={screen <= 425 ? 1 :screen <= 700 ? 1.1 : screen <= 1110 ? 2 : 3}
+                            slidesPerGroup={screen <= 700 ? 1 : screen <= 1110 ? 1 : 3}
                             updateOnWindowResize
                             onSlideChange={(swiper) => {
                                 // eslint-disable-next-line @typescript-eslint/no-unused-expressions

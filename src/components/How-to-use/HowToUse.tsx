@@ -1,6 +1,6 @@
 import s from "./style.module.css";
 import {LanguageKeys} from "../../helpers/languageKeys.ts";
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {StateContext, StateContextType} from "../../App.tsx";
 import HowToCard from "./HowToUseCard/HowToCard.tsx";
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -14,16 +14,6 @@ const HowToUse = () => {
         throw new Error('MyComponent must be used within a StateProvider');
     }
     const {globalLanguage, translation, pageContent, screen} = context
-
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     return (
         translation && pageContent &&

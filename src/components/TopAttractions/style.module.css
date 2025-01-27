@@ -4,8 +4,8 @@
     user-select: none;
 }
 
-.top_prague__title {
-    margin: 40px;
+.top__attractions__title {
+    margin: 40px 0;
     font-weight: 700;
     font-size: 22px;
     line-height: 130%;
@@ -144,13 +144,15 @@
         max-width: 768px;
     }
 
-    .top_prague__title {
-        margin: 40px;
-        font-size: 21px;
+    .top__attractions__title {
+        font-size: 18px;
+        margin-left: 8px;
     }
 
     .attractions__container {
         width: 100%;
+        padding-right: 8px;
+        padding-left: 8px;
     }
 
     .item_list_top_prague {
@@ -166,9 +168,6 @@
         padding: 0 8px;
     }
 
-    .top_prague__title {
-        margin: 40px 8px;
-    }
 
     .item_list_top_prague .bottom_bar .like:hover {
         opacity: 0.8;
@@ -178,11 +177,5 @@
     .item_list_top_prague .bottom_bar .likeFull:hover {
         opacity: 0.8;
         background-image: url(https://praguecoolpass.com/img/heart-active.72445abc.svg);
-    }
-}
-
-@media (max-width: 376px) {
-    .top_prague__title {
-        font-size: 18px;
     }
 }
