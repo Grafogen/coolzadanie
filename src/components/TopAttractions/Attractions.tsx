@@ -54,7 +54,7 @@ export const Attractions = () => {
                                 speed={1300}
                                 spaceBetween={20}
                                 allowTouchMove={true}
-                                slidesPerView={screen <= 425 ? 1.2 : screen <= 768 ? 1.2 : screen <= 888 ? 2 : screen <= 1150 ? 3 : 4}
+                                slidesPerView={screen <= 425 ? 1 : screen <= 768 ? 1.2 : screen <= 888 ? 2 : screen <= 1150 ? 3 : 4}
                                 slidesPerGroup={screen <= 425 ? 1 : screen <= 768 ? 1 : 2}
                                 updateOnWindowResize
                             >
