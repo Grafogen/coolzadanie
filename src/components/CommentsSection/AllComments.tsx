@@ -68,7 +68,7 @@ const AllComments = () => {
         isSuccess &&
         <section className={s.section}>
             <div className={s.h3_container}>
-                <h3>{translation[globalLanguage as LanguageKeys]['REVIEWS_what_do_customers_say']}</h3>
+                <h3 className={s.h3}>{translation[globalLanguage as LanguageKeys]['REVIEWS_what_do_customers_say']}</h3>
                 <div className={s.stars_wrap}>
                     <div className={s.rating}> {rating}</div>
                     <div className={s.stars}>
@@ -88,7 +88,7 @@ const AllComments = () => {
                         onClick={() => {// @ts-ignore
                             swiperRef.current?.slidePrev()
                         }}
-                        style={{ backgroundImage: `url("https://praguecoolpass.com/img/left-arrow.4841114c.svg")` }}>
+                        style={{backgroundImage: `url("https://praguecoolpass.com/img/left-arrow.4841114c.svg")`}}>
                     </div>
                     <div className={s.reviews_wrap}>
                         <Swiper
@@ -105,7 +105,7 @@ const AllComments = () => {
                             speed={1300}
                             spaceBetween={20}
                             allowTouchMove={true}
-                            slidesPerView={screen <= 425 ? 1 :screen <= 700 ? 1.1 : screen <= 1110 ? 2 : 3}
+                            slidesPerView={screen <= 425 ? 1 : screen <= 700 ? 1.1 : screen <= 1110 ? 2 : 3}
                             slidesPerGroup={screen <= 700 ? 1 : screen <= 1110 ? 1 : 3}
                             updateOnWindowResize
                             onSlideChange={(swiper) => {
@@ -147,7 +147,7 @@ const AllComments = () => {
                         onClick={() => {// @ts-ignore
                             swiperRef.current?.slideNext()
                         }}
-                        style={{ backgroundImage: `url("https://praguecoolpass.com/img/right-arrow.7fb8afe3.svg")` }}>
+                        style={{backgroundImage: `url("https://praguecoolpass.com/img/right-arrow.7fb8afe3.svg")`}}>
 
                     </div>
                 </div>

@@ -26,6 +26,20 @@
     color: #fff;
 }
 
+.logo{
+    color: #fff;
+    cursor: pointer;
+    font-family: Marcaelis Pro, sans-serif;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    margin-bottom: 7px;
+    margin-right: auto;
+    margin-top: 6px;
+    text-decoration: none;
+}
+
 .navBar {
     display: flex;
     align-items: center;
@@ -151,16 +165,15 @@
 .countries__ul li:not(:last-child) {
     padding-bottom: 5px;
 }
-
+.header_mobile_version{
+    display: none;
+}
 
 @media (max-width: 768px ) {
 
-    /*.header {*/
-    /*    width: 768px;*/
-    /*    min-width: 768px;*/
-    /*    height: 600px;*/
-    /*    color: #fff;*/
-    /*}*/
+    .header {
+        height: 56px;
+    }
 
     .header__container {
         width: auto;
@@ -250,7 +263,11 @@
         transform: rotateZ(-45deg);
 
     }
-
+    .header_mobile_version.hidden {
+        padding: 0;
+        height: 0;
+        transition: height .3s ease-in, padding .3s ease-in;
+    }
     .header_mobile_version {
         display: flex;
         position: absolute;
@@ -258,7 +275,6 @@
         flex: 0 0 100%;
         flex-direction: column;
         order: 3;
-        height: 375px;
         width: 100%;
         background: #727580;
         padding-top: 42px;
@@ -267,9 +283,15 @@
         margin: 0;
         top: 100%;
         overflow: hidden;
-        z-index: 1000;
+        z-index: 3000;
         transition: height .3s ease-in-out, padding .3s ease-in-out;
-
+    }
+    .header_mobile_version_open{
+        gap: 30px;
+        height: 375px;
+        padding-top: 42px;
+        transition: height .3s ease-in;
+        z-index: 1000;
     }
 
     .header_mobile_version a {
@@ -281,9 +303,6 @@
         text-decoration: none;
         color: #fff;
         cursor: pointer;
-        margin-top: 11px;
-        margin-bottom: 14px;
-        margin-right: 30px;
         white-space: nowrap;
     }
 

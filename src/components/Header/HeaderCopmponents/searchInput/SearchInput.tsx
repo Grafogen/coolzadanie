@@ -12,7 +12,7 @@ const SearchInput = () => {
     const [lang, setLang] = useState(localStorage.getItem('selectedLanguage'));
 
     // @ts-ignore
-    const {translation, globalLanguage, screen}=useContext(StateContext);
+    const {translation, globalLanguage, screen} = useContext(StateContext);
 
 
     const accordionRef = useRef<HTMLDivElement | null>(null);
@@ -59,7 +59,7 @@ const SearchInput = () => {
         setInputValue(place);
         setIsOpen(false);
     };
-    const handleIconClear=()=>{
+    const handleIconClear = () => {
         setInputValue('')
         setIsOpen(false)
     }
@@ -75,41 +75,36 @@ const SearchInput = () => {
         <div className="accordion-input" ref={accordionRef}>
             <div className="wrap_search">
                 <input
-                type="text"
-                className='input'
-                value={inputValue}
-                onChange={(e) => handleChange(e)}
-                placeholder={`${translation[globalLanguage].SEARCH}`}
-            />
+                    type="text"
+                    className='input'
+                    value={inputValue}
+                    onChange={(e) => handleChange(e)}
+                    placeholder={`${translation[globalLanguage].SEARCH}`}
+                />
+                {isOpen && (
+                    <div className="accordion-content">
+                        {apiResults.length > 0 && (
+                            <ul className="api_results">
+                                {apiResults.map((result: InputInterface, index) => (
+                                    <li key={index} className="accordion-item"
+                                        onClick={() => handleSelectPlace(result.content[lang as LanguageKeys].title)}>
+                                        {capitalizeWords(result.content[lang as LanguageKeys].title)}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                )}
                 <div className="icon_search" onClick={handleIconClear}
                      style={{background: ` url(https://praguecoolpass.com/img/search.a842451d.svg)`}}></div>
                 {screen > 768 ?
-                <Button text={translation[globalLanguage]['APP_LETS_GO']}/>
-                :
-                    <Button style={{width:'100%'}} text={translation[globalLanguage]['APP_LETS_GO']}/>
+                    <Button text={translation[globalLanguage]['APP_LETS_GO']}/>
+                    :
+                    <Button style={{width: '100%'}} text={translation[globalLanguage]['APP_LETS_GO']}/>
                 }
             </div>
 
 
-            {isOpen && (
-                <div className="accordion">
-
-                    {isOpen && (
-                        <div className="accordion-content">
-                            {apiResults.length > 0 && (
-                                <ul className="api_results">
-                                    {apiResults.map((result: InputInterface, index) => (
-                                        <li key={index} className="accordion-item"
-                                            onClick={() => handleSelectPlace(result.content[lang as LanguageKeys].title)}>
-                                            {capitalizeWords(result.content[lang as LanguageKeys].title)}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    )}
-                </div>
-            )}
         </div>
     );
 };

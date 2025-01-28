@@ -1,5 +1,5 @@
 .section {
-    max-width: 1140px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
@@ -11,13 +11,14 @@
     justify-content: space-between;
 }
 
-h3 {
+.h3 {
     font-family: Open Sans Bold, sans-serif;
     font-weight: 700;
     font-size: 22px;
     line-height: 130%;
     text-transform: uppercase;
     color: #252c3e;
+    margin: 40px 0 30px  40px;
 }
 
 .stars_wrap {

@@ -124,7 +124,7 @@ const Navigation = () => {
                         </div>
                     </div>
                     <div className={s.header__Logo}>
-                        CoolPass
+                        <NavLink to={'/'} ><span className={s.logo}>Coolpass</span></NavLink>
                     </div>
                     <div className={s.header__titles__list}>
                         <div className={s.container}>
@@ -171,7 +171,7 @@ const Navigation = () => {
                         </div>
                     </div>
                     { viewMob && (
-                        <ul className={s.header_mobile_version}>
+                        <nav className={`${s.header_mobile_version} ${viewMob ? `${s.header_mobile_version_open}` : ''}`}>
                             <NavLink to='*'><span
                                 className={s.header__title__item}>{isSuccess && data[0].content[language as LanguageKeys]?.title}</span></NavLink>
                             <NavLink to='*'><span
@@ -187,7 +187,7 @@ const Navigation = () => {
                             <NavLink to='*'>
                                 <Button style={{width:'258px'}} text={'BUY ONLINE'}/>
                             </NavLink>
-                        </ul>
+                        </nav>
                     )}
                 </nav>
             </div>

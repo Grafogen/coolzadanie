@@ -21,10 +21,13 @@
     border: 1px solid #ccc;
 }
 
-.accordion {
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.input:active{
+    border: 1px solid #fdca2e;
+    border-bottom:none ;
 }
+
+
+
 
 .accordion-button {
     background: #f1f1f1;
@@ -36,10 +39,19 @@
 }
 
 .accordion-content {
-    border-top: 1px solid #ccc;
+    background: #fff;
+    border: 1px solid #fdca2e;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+    color: #000;
+    list-style-type: none;
+    margin: 36px 0 0;
     max-height: 220px;
     overflow-y: auto;
-    transition: max-height 0.3s ease;
+    padding: 0;
+    position: absolute;
+    width: 270px;
+    z-index: 900;
 }
 
 .accordion-item {
@@ -70,7 +82,7 @@
     width: 20px;
     position: relative;
     top: 8px;
-    right: 49px;
+    right: 29px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -126,10 +138,11 @@
 
     .accordion {
         border: none;
+        z-index: 1233;
     }
 
     .accordion-content {
-        max-height: 150px;
+        width: 100% ;
     }
 
     .accordion-item {
@@ -151,6 +164,7 @@
     .accordion-input {
         margin-top: 10px;
     }
+
 
     .input {
         height: 30px;

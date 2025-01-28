@@ -15,3 +15,8 @@
     line-height: 130%;
     margin: 8px;
 }
+.under_container{
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
