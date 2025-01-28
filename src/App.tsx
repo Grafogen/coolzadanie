@@ -6,6 +6,7 @@ import './index.css'
 import {PageDataInterface} from "./types/PageDataTypes.ts";
 import {LangsInterface} from "./types/Langs.ts";
 import AllSections from "./components/AllSections.tsx";
+import {InDevelopment} from "./components/InDevelopment/InDevelopment.tsx";
 
 // @ts-ignore
 export const StateContext= createContext()
@@ -68,7 +69,7 @@ function App() {
             <StateContext.Provider value={value}>
                 <Routes>
                     <Route path='/' element={<AllSections/>}/>
-                    {/*<Route path='/*' element={<UnderBar />} />*/}
+                    <Route path='/*' element={<InDevelopment />} />
                 </Routes>
             </StateContext.Provider>
         </div>
