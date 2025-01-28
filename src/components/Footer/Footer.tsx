@@ -76,6 +76,7 @@ const Footer = () => {
                     <div>
                         <div className="footer-subscribe-form">
                             <input name="email" type="email" placeholder={ translation[globalLanguage as LanguageKeys]['ENTER_EMAIL_PLACEHOLDER']}
+                                // @ts-ignore
                                    ref={inputRef}></input>
                             <button onClick={handleClickClear}
                                     className="footer-subscribe-button">{ translation[globalLanguage as LanguageKeys]['EMAIL_SUBSCRIBE']}</button>

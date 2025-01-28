@@ -11,11 +11,11 @@ const SearchInput = () => {
     const [apiResults, setApiResults] = useState([]);
     const [lang, setLang] = useState(localStorage.getItem('selectedLanguage'));
 
+
     // @ts-ignore
-    const {translation, globalLanguage, screen} = useContext(StateContext);
-
-
+    const { translation, globalLanguage, screen } = useContext(StateContext);
     const accordionRef = useRef<HTMLDivElement | null>(null);
+
     const capitalizeWords = (sentence: string) => {
         if (!sentence) return sentence;
         return sentence
@@ -27,15 +27,12 @@ const SearchInput = () => {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.value;
         const lang = localStorage.getItem('selectedLanguage');
-        setLang(lang)
+        setLang(lang);
         setInputValue(value);
 
         if (value) {
             setIsOpen(true);
-            fetchPlaces(value, lang)
-        } else {
-            setApiResults([]);
-            setIsOpen(false);
+            fetchPlaces(value, lang);
         }
     };
 
@@ -59,10 +56,11 @@ const SearchInput = () => {
         setInputValue(place);
         setIsOpen(false);
     };
+
     const handleIconClear = () => {
-        setInputValue('')
-        setIsOpen(false)
-    }
+        setInputValue('');
+        setIsOpen(false);
+    };
 
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
@@ -71,9 +69,11 @@ const SearchInput = () => {
         };
     }, []);
 
+
     return (
         <div className="accordion-input" ref={accordionRef}>
             <div className="wrap_search">
+                <div className='input_wrapper'>
                 <input
                     type="text"
                     className='input'
@@ -95,6 +95,7 @@ const SearchInput = () => {
                         )}
                     </div>
                 )}
+            </div>
                 <div className="icon_search" onClick={handleIconClear}
                      style={{background: ` url(https://praguecoolpass.com/img/search.a842451d.svg)`}}></div>
                 {screen > 768 ?

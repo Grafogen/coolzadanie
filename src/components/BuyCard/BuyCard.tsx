@@ -36,6 +36,7 @@ const PassCard = () => {
 
 
 
+
     return (
         <section className={s.section}>
             <div className={s.h3_container}>
@@ -46,6 +47,7 @@ const PassCard = () => {
                     <div className='swipBuy'>
                         <div className={s.content}>
                             <div
+                                // @ts-ignore
                                 ref={prevRef}
                                 className="buy__CoolPass__left__control buy__CoolPass__control__disabled"
                                 onClick={() => {// @ts-ignore
@@ -104,6 +106,7 @@ const PassCard = () => {
                                     </Swiper>
                             </div>
                             <div
+                                // @ts-ignore
                                 ref={nextRef}
                                 className="buy__CoolPass__right__control"
                                 onClick={() => {// @ts-ignore

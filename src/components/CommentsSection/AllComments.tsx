@@ -83,6 +83,7 @@ const AllComments = () => {
             <div className='comments'>
                 <div className={s.reviews_container}>
                     <div
+                        // @ts-ignore
                         ref={prevRef}
                         className="comments__left__control comments__control__disabled"
                         onClick={() => {// @ts-ignore
@@ -142,6 +143,7 @@ const AllComments = () => {
                         </Swiper>
                     </div>
                     <div
+                        // @ts-ignore
                         ref={nextRef}
                         className="comments__right__control comments__control__disabled"
                         onClick={() => {// @ts-ignore
