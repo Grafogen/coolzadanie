@@ -83,19 +83,23 @@ const SearchInput = () => {
                 />
                 {isOpen && (
                     <div className="accordion-content">
-                        {apiResults.length > 0 && (
-                            <ul className="api_results">
-                                {apiResults.map((result: InputInterface, index) => (
-                                    <li key={index} className="accordion-item"
-                                        onClick={() => handleSelectPlace(result.content[lang as LanguageKeys].title)}>
-                                        {capitalizeWords(result.content[lang as LanguageKeys].title)}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+                        {apiResults.length > 0 ? (
+                                <ul className="api_results">
+                                    {apiResults.map((result: InputInterface, index) => (
+                                        <li key={index} className="accordion-item"
+                                            onClick={() => handleSelectPlace(result.content[lang as LanguageKeys].title)}>
+                                            {capitalizeWords(result.content[lang as LanguageKeys].title)}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )
+                            : <li  className="accordion-item">
+                                {capitalizeWords(translation[lang as LanguageKeys]['SEARCH_not_found'])}
+                            </li>
+                        }
                     </div>
                 )}
-            </div>
+                </div>
                 <div className="icon_search" onClick={handleIconClear}
                      style={{background: ` url(https://praguecoolpass.com/img/search.a842451d.svg)`}}></div>
                 {screen > 768 ?
